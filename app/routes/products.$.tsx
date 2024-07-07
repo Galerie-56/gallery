@@ -16,6 +16,7 @@ export const loader: LoaderFunction = async ({
 }: LoaderFunctionArgs) => {
   let slug = params['*'] ?? 'home';
   const version = isPreview() ? 'draft' : 'published';
+  const resolveRelations = ['product.categories'];
 
   const sbApi = getStoryblokApi();
   let { data }: { data: any } = await sbApi
@@ -23,6 +24,7 @@ export const loader: LoaderFunction = async ({
       `cdn/stories/products/${slug}`,
       {
         version: version as 'published' | 'draft',
+        resolve_relations: resolveRelations,
       },
       { cache: 'no-store' }
     )
@@ -41,7 +43,6 @@ export const loader: LoaderFunction = async ({
   const { data: productsData } = await sbApi.get(
     `cdn/stories`,
     {
-      //all posts data for the Blog page
       version: version as 'published' | 'draft',
       starts_with: 'products/',
       per_page: perPage,
