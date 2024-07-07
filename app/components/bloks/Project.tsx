@@ -25,6 +25,7 @@ export const Project = ({ blok }: { blok: ProjectStoryblok }) => {
     solution,
     seo,
     landscape_image,
+    flipbook,
   } = blok;
   const { projectName, prevProject, nextProject } = useLoaderData();
 
@@ -44,8 +45,6 @@ export const Project = ({ blok }: { blok: ProjectStoryblok }) => {
     }
   }, [isExpanded]);
 
-  const url = typeof window !== 'undefined' && window.location.href;
-
   return (
     <article {...storyblokEditable(blok)} key={blok._uid} className="">
       <h1>{projectName}</h1>
@@ -53,11 +52,21 @@ export const Project = ({ blok }: { blok: ProjectStoryblok }) => {
         <div className="md:w-1/2">
           <div
             dangerouslySetInnerHTML={{
-              __html: `Problem: ${renderRichText(brief)}`,
+              __html: `${renderRichText(brief)}`,
             }}
             className="prose mb-5"
           />
-          <div
+          {flipbook && (
+            <div>
+              <div className="relative pt-[60%] min-h-[326px] w-full">
+                <iframe
+                  className="absolute inset-0 w-full h-full border-none"
+                  src={`https://e.issuu.com/embed.html?d=${flipbook}&u=galerie56.com&hideIssuuLogo=true&showOtherPublicationsAsSuggestions=true&layout=http%3A%2F%2Fskin.issuu.com%2Fv%2Flight%2Flayout.xml&showFlipBtn=true`}
+                ></iframe>
+              </div>
+            </div>
+          )}
+          {/* <div
             className="relative overflow-hidden transition-max-height duration-500 ease-in-out"
             style={{ maxHeight: isExpanded ? 'none' : '10rem' }} // Adjust this value to match the height of 5 lines
             ref={contentRef}
@@ -74,33 +83,33 @@ export const Project = ({ blok }: { blok: ProjectStoryblok }) => {
             className=" bg-transparent hover:bg-transparent capitalize my-5 text-primary p-0 font-bold"
           >
             {isExpanded ? 'Close' : 'Read More'}
-          </button>
+          </button> */}
           {/* <SocialShare url={url} /> */}
         </div>
         <div className="md:w-1/2 uppercase">
           <div className="flex gap-10">
             <div className="w-1/2 space-y-5">
-              <div>
+              {/* <div>
                 <h4 className="text-[12px]">Category</h4>
                 <div className="uppercase">{category?.name}</div>
-              </div>
-              <div>
+              </div> */}
+              {/* <div>
                 <h4 className="text-[12px]">Project Code</h4>
                 <div className="uppercase">{project_code}</div>
-              </div>
+              </div> */}
               {photographer && (
                 <div>
                   <h4 className="text-[12px]">Photographer</h4>
                   <div className="uppercase">{photographer}</div>
                 </div>
               )}
-              {architect && (
+              {/* {architect && (
                 <div>
                   <h4 className="text-[12px]">Architect</h4>
                   <div className="uppercase">{architect}</div>
                 </div>
-              )}
-              {awards?.length > 0 && (
+              )} */}
+              {/* {awards?.length > 0 && (
                 <div>
                   <h4 className="text-[12px]">Awards</h4>
                   <div className="uppercase">
@@ -111,8 +120,8 @@ export const Project = ({ blok }: { blok: ProjectStoryblok }) => {
                     ))}
                   </div>
                 </div>
-              )}
-              {press?.length > 0 && (
+              )} */}
+              {/* {press?.length > 0 && (
                 <div>
                   <h4 className="text-[12px]">Press</h4>
                   <div className="uppercase">
@@ -123,7 +132,7 @@ export const Project = ({ blok }: { blok: ProjectStoryblok }) => {
                     ))}
                   </div>
                 </div>
-              )}
+              )} */}
             </div>
             <div className="w-1/2 space-y-5">
               {nextProject && (
