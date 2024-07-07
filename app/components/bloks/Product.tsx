@@ -3,6 +3,23 @@ import { storyblokEditable, renderRichText } from '@storyblok/react';
 import { ProductStoryblok } from '~/types';
 import { Link } from '@remix-run/react';
 import { loader } from '~/routes/products.$';
+import { CategoryStoryblok, GalleryStoryblok } from '~/types';
+
+const savePDF = () => {
+  const style = document.createElement('style');
+  style.textContent = `
+  @media print {
+    body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    @page { size: auto; margin: 20mm; }
+    header, footer, nav, .no-print { display: none !important; }
+  }
+`;
+  document.head.appendChild(style);
+
+  window.print();
+
+  document.head.removeChild(style);
+};
 
 export const Product = ({ blok }: { blok: ProductStoryblok }) => {
   const { productName } = useLoaderData<typeof loader>();
@@ -18,11 +35,11 @@ export const Product = ({ blok }: { blok: ProductStoryblok }) => {
         <div className="w-full md:w-2/3 mb-5 md:mb-0">
           {gallery && gallery.length > 0 && (
             <div className="space-y-4">
-              {gallery.map((image, index) => (
+              {gallery.map((image: GalleryStoryblok, index: number) => (
                 <img
                   key={index}
                   src={image.filename}
-                  alt={`${productName} - Image ${index + 1}`}
+                  alt={`${productName} - Image`}
                   className="w-full"
                 />
               ))}
@@ -35,9 +52,9 @@ export const Product = ({ blok }: { blok: ProductStoryblok }) => {
             <div dangerouslySetInnerHTML={{ __html: renderRichText(text) }} />
           </div>
           {categories && categories.length > 0 && (
-            <div className="mt-4">
+            <div className="mt-4 no-print">
               Categories:
-              {categories.map((category, index) => (
+              {categories.map((category: CategoryStoryblok, index: number) => (
                 <Link
                   key={category._uid}
                   to={`/${category.full_slug}`}
@@ -49,12 +66,10 @@ export const Product = ({ blok }: { blok: ProductStoryblok }) => {
               ))}
             </div>
           )}
-          <div className="mt-4">
-            <button className="bg-gray-200 text-gray-700 px-4 py-2">
-              SAVE AS PDF
-            </button>
+          <div className="mt-4 border-b border-slate-300 w-[200px] pb-4 mb-6 hover:text-black transition duration-300 hover:underline">
+            <button onClick={savePDF}>SAVE AS PDF</button>
           </div>
-          <div className="mt-4">
+          <div className=" no-print">
             <p className="font-bold">PRICE ON REQUEST</p>
           </div>
         </div>
