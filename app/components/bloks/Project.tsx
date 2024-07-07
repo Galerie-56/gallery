@@ -4,31 +4,30 @@ import { ProjectStoryblok } from '~/types';
 import { SlideShow } from '../SlideShow';
 import { Link } from '@remix-run/react';
 import { useLoaderData } from '@remix-run/react';
-
-import { Dialog, DialogContent, DialogTrigger } from '~/components/ui/dialog';
-import { LightboxCarousel } from '~/components/LightBoxCarousel';
+import { WorkCard } from '../WorkCard';
+import type { ProductStoryblok } from '~/types';
+import { ProjectNavigation } from '../ProjectNavigation';
 
 export const Project = ({ blok }: { blok: ProjectStoryblok }) => {
   const {
-    architect,
-    awards,
     brief,
-    category,
     photographer,
-    press,
-    project_code,
     slideshow,
-    solution,
-    seo,
     landscape_image,
     flipbook,
+    products,
   } = blok;
   const { projectName, prevProject, nextProject } = useLoaderData();
+  console.log('products', products);
 
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <article {...storyblokEditable(blok)} key={blok._uid} className="">
+    <article
+      {...storyblokEditable(blok)}
+      key={blok._uid}
+      className="flex flex-col"
+    >
       <h1>{projectName}</h1>
       <div className="md:flex gap-20">
         <div className="md:w-1/2">
@@ -49,86 +48,30 @@ export const Project = ({ blok }: { blok: ProjectStoryblok }) => {
             </div>
           )}
         </div>
-        <div className="md:w-1/2 uppercase">
-          <div className="flex gap-10">
-            <div className="w-1/2 space-y-5">
-              {photographer && (
-                <div>
-                  <h4 className="text-[12px]">Photographer</h4>
-                  <div className="uppercase">{photographer}</div>
-                </div>
-              )}
-            </div>
-            <div className="w-1/2 space-y-5">
-              {nextProject && (
-                <div>
-                  <h4 className="text-[12px]">Next</h4>
-                  <Link
-                    prefetch="intent"
-                    to={`/${nextProject?.full_slug}`}
-                    className="uppercase"
-                  >
-                    {nextProject?.headline}
-                  </Link>
-                </div>
-              )}
-              {prevProject && (
-                <div>
-                  <h4 className="text-[12px]">Previous</h4>
-                  <Link
-                    prefetch="intent"
-                    to={`/${prevProject?.full_slug}`}
-                    className="uppercase"
-                  >
-                    {prevProject?.headline}
-                  </Link>
-                </div>
-              )}
-              <div>
-                <h4 className="text-[12px]">View all</h4>
-                <Link to="/exhibitions" prefetch="intent" className="uppercase">
-                  exhibitions
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
+        <ProjectNavigation
+          className="md:w-1/2 uppercase hidden sm:block"
+          photographer={photographer}
+          nextProject={nextProject}
+          prevProject={prevProject}
+        />
       </div>
-      <div className="mt-7">
+      <div className="mt-7 order-1 sm:order-none">
         <img
           src={`${landscape_image?.filename}/m/1220x0`}
           alt={landscape_image?.alt}
-          className="w-full" // Ensure the main image takes full width
+          className="w-full"
         />
-        <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 md:gap-4 gap-2  mt-4">
-          {' '}
-          {/* Changed to grid layout */}
-          {slideshow?.map((image, index) => (
-            <Dialog key={image._uid}>
-              <DialogTrigger asChild>
-                <a
-                  onClick={() => setActiveIndex(index)}
-                  className="block aspect-square cursor-pointer"
-                >
-                  {' '}
-                  {/* Added aspect-square for consistent height */}
-                  <img
-                    src={`${image.filename}/m/300x300`}
-                    alt={image.alt}
-                    className="w-full h-full object-cover hover:opacity-60 transition duration-300 " // Ensure image fills the container
-                  />
-                </a>
-              </DialogTrigger>
-              <DialogContent className="!w-full h-full flex-col justify-center items-center border-none shadow-none">
-                <LightboxCarousel
-                  images={slideshow}
-                  startIndex={activeIndex}
-                  location="project"
-                />
-              </DialogContent>
-            </Dialog>
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 md:gap-4 gap-2  mt-4">
+          {products.map((product: ProductStoryblok) => (
+            <WorkCard key={product.id} product={product} />
           ))}
         </div>
+        <ProjectNavigation
+          className="md:w-1/2 uppercase sm:hidden mt-5"
+          photographer={photographer}
+          nextProject={nextProject}
+          prevProject={prevProject}
+        />
       </div>
     </article>
   );
