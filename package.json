@@ -1,0 +1,69 @@
+{
+  "name": "gallery-56",
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "scripts": {
+    "build": "remix vite:build",
+    "dev": "remix vite:dev",
+    "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
+    "proxy": "local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem",
+    "generate-sb-types": "storyblok pull-components --space=258807 && storyblok-generate-ts source=./components.258807.json target=./app/types/component-types-sb",
+    "start": "remix-serve ./build/server/index.js",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@headlessui/react": "^2.1.1",
+    "@kunukn/react-collapse": "^2.2.10",
+    "@radix-ui/react-dialog": "^1.1.1",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@remix-run/node": "^2.10.2",
+    "@remix-run/react": "^2.10.2",
+    "@remix-run/serve": "^2.10.2",
+    "@storyblok/react": "^3.0.10",
+    "@tailwindcss/forms": "^0.5.7",
+    "class-variance-authority": "^0.7.0",
+    "embla-carousel-autoplay": "^8.1.6",
+    "embla-carousel-fade": "^8.1.6",
+    "embla-carousel-react": "^8.1.6",
+    "framer-motion": "^11.2.13",
+    "isbot": "^5.1.11",
+    "lucide-react": "^0.400.0",
+    "postcss-import": "^16.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.2.1",
+    "tailwind-merge": "^2.3.0",
+    "tailwindcss-animate": "^1.0.7",
+    "vaul": "^0.9.1"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^2.10.2",
+    "@tailwindcss/typography": "^0.5.13",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.15.0",
+    "@typescript-eslint/parser": "^7.15.0",
+    "autoprefixer": "^10.4.19",
+    "clsx": "^2.1.1",
+    "eslint": "^9.6.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.9.0",
+    "eslint-plugin-react": "^7.34.3",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "postcss": "^8.4.39",
+    "storyblok-generate-ts": "^2.1.0",
+    "tailwindcss": "^3.4.4",
+    "typescript": "^5.5.3",
+    "vite": "^5.3.3",
+    "vite-tsconfig-paths": "^4.3.2"
+  },
+  "resolutions": {
+    "@kunukn/react-collapse": "2.2.10"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "packageManager": "pnpm@9.3.0+sha512.ee7b93e0c2bd11409c6424f92b866f31d3ea1bef5fbe47d3c7500cdc3c9668833d2e55681ad66df5b640c61fa9dc25d546efa54d76d7f8bf54b13614ac293631"
+}
