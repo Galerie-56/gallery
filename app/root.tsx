@@ -34,6 +34,7 @@ import {
   ImageFull,
   Career,
   CareersList,
+  AllDesigners,
 } from './components/bloks';
 import { isPreview } from './lib';
 
@@ -67,6 +68,7 @@ const components = {
   'image-full': ImageFull,
   career: Career,
   'careers-list': CareersList,
+  'all-designers': AllDesigners,
 };
 
 storyblokInit({
