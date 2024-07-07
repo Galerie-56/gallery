@@ -1,14 +1,10 @@
-import { useState, useRef, useEffect } from 'react';
-import {
-  storyblokEditable,
-  renderRichText,
-  StoryblokComponent,
-} from '@storyblok/react';
+import { useState } from 'react';
+import { storyblokEditable, renderRichText } from '@storyblok/react';
 import { ProjectStoryblok } from '~/types';
 import { SlideShow } from '../SlideShow';
 import { Link } from '@remix-run/react';
 import { useLoaderData } from '@remix-run/react';
-// import { SocialShare } from "../SocialShare";
+
 import { Dialog, DialogContent, DialogTrigger } from '~/components/ui/dialog';
 import { LightboxCarousel } from '~/components/LightBoxCarousel';
 
@@ -29,21 +25,7 @@ export const Project = ({ blok }: { blok: ProjectStoryblok }) => {
   } = blok;
   const { projectName, prevProject, nextProject } = useLoaderData();
 
-  const [isExpanded, setIsExpanded] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  const toggleReadMore = () => {
-    setIsExpanded(!isExpanded);
-  };
-
-  useEffect(() => {
-    if (contentRef.current) {
-      contentRef.current.style.maxHeight = isExpanded
-        ? `${contentRef.current.scrollHeight}px`
-        : '10rem'; // Adjust this value to match the height of 5 lines
-    }
-  }, [isExpanded]);
 
   return (
     <article {...storyblokEditable(blok)} key={blok._uid} className="">
@@ -58,7 +40,7 @@ export const Project = ({ blok }: { blok: ProjectStoryblok }) => {
           />
           {flipbook && (
             <div>
-              <div className="relative pt-[60%] min-h-[326px] w-full">
+              <div className="relative pt-[60%] min-h-[326px] w-full mb-5 md:mb-0">
                 <iframe
                   className="absolute inset-0 w-full h-full border-none"
                   src={`https://e.issuu.com/embed.html?d=${flipbook}&u=galerie56.com&hideIssuuLogo=true&showOtherPublicationsAsSuggestions=true&layout=http%3A%2F%2Fskin.issuu.com%2Fv%2Flight%2Flayout.xml&showFlipBtn=true`}
@@ -66,73 +48,16 @@ export const Project = ({ blok }: { blok: ProjectStoryblok }) => {
               </div>
             </div>
           )}
-          {/* <div
-            className="relative overflow-hidden transition-max-height duration-500 ease-in-out"
-            style={{ maxHeight: isExpanded ? 'none' : '10rem' }} // Adjust this value to match the height of 5 lines
-            ref={contentRef}
-          >
-            <div
-              dangerouslySetInnerHTML={{
-                __html: `Solution: ${renderRichText(solution)}`,
-              }}
-              className="prose text-primary"
-            />
-          </div>
-          <button
-            onClick={toggleReadMore}
-            className=" bg-transparent hover:bg-transparent capitalize my-5 text-primary p-0 font-bold"
-          >
-            {isExpanded ? 'Close' : 'Read More'}
-          </button> */}
-          {/* <SocialShare url={url} /> */}
         </div>
         <div className="md:w-1/2 uppercase">
           <div className="flex gap-10">
             <div className="w-1/2 space-y-5">
-              {/* <div>
-                <h4 className="text-[12px]">Category</h4>
-                <div className="uppercase">{category?.name}</div>
-              </div> */}
-              {/* <div>
-                <h4 className="text-[12px]">Project Code</h4>
-                <div className="uppercase">{project_code}</div>
-              </div> */}
               {photographer && (
                 <div>
                   <h4 className="text-[12px]">Photographer</h4>
                   <div className="uppercase">{photographer}</div>
                 </div>
               )}
-              {/* {architect && (
-                <div>
-                  <h4 className="text-[12px]">Architect</h4>
-                  <div className="uppercase">{architect}</div>
-                </div>
-              )} */}
-              {/* {awards?.length > 0 && (
-                <div>
-                  <h4 className="text-[12px]">Awards</h4>
-                  <div className="uppercase">
-                    {awards?.map((award) => (
-                      <div className="mb-5" key={award._uid}>
-                        {award.year} <br /> {award.title}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )} */}
-              {/* {press?.length > 0 && (
-                <div>
-                  <h4 className="text-[12px]">Press</h4>
-                  <div className="uppercase">
-                    {press?.map((p) => (
-                      <div className="mb-5" key={p._uid}>
-                        {p.title}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )} */}
             </div>
             <div className="w-1/2 space-y-5">
               {nextProject && (
