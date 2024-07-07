@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 @font-face {
-  font-family: "Neue Haas Unica";
-  src: url("/assets/fonts/NeueHaasUnica-Regular.eot"); /* Adjust if your path differs */
-  src: local("Neue Haas Unica Regular"), local("NeueHaasUnica-Regular"),
-    url("/assets/fonts/NeueHaasUnica-Regular.eot?#iefix")
-      format("embedded-opentype"),
-    url("/assets/fonts/NeueHaasUnica-Regular.woff2") format("woff2"),
-    url("/assets/fonts/NeueHaasUnica-Regular.woff") format("woff");
+  font-family: 'Neue Haas Unica';
+  src: url('/assets/fonts/NeueHaasUnica-Regular.eot'); /* Adjust if your path differs */
+  src: local('Neue Haas Unica Regular'), local('NeueHaasUnica-Regular'),
+    url('/assets/fonts/NeueHaasUnica-Regular.eot?#iefix')
+      format('embedded-opentype'),
+    url('/assets/fonts/NeueHaasUnica-Regular.woff2') format('woff2'),
+    url('/assets/fonts/NeueHaasUnica-Regular.woff') format('woff');
 
   font-weight: normal;
   font-style: normal;
@@ -114,6 +114,15 @@
   }
   .button {
     @apply bg-primary text-white uppercase hover:bg-black transition-all duration-300 px-2  py-2;
+  }
+  .request-price {
+    input,
+    textarea {
+      @apply bg-slate-100 border-0;
+    }
+    label {
+      @apply text-black font-bold;
+    }
   }
 }
 
