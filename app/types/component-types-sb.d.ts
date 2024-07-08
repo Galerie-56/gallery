@@ -1,5 +1,11 @@
 import {StoryblokStory} from 'storyblok-generate-ts'
 
+export interface AllDesignersStoryblok {
+  _uid: string;
+  component: "all-designers";
+  [k: string]: any;
+}
+
 export interface AllProductsStoryblok {
   _uid: string;
   component: "all-products";
@@ -160,6 +166,15 @@ export interface ContentStoryblok {
   [k: string]: any;
 }
 
+export interface DesignerStoryblok {
+  text?: RichtextStoryblok;
+  image?: AssetStoryblok;
+  products?: (StoryblokStory<ProductStoryblok> | string)[];
+  _uid: string;
+  component: "designer";
+  [k: string]: any;
+}
+
 export interface ImageFieldsStoryblok {
   name?: string;
   image?: AssetStoryblok;
@@ -189,6 +204,7 @@ export interface NavItemStoryblok {
 export interface PageStoryblok {
   headline?: string;
   body?: (
+    | AllDesignersStoryblok
     | AllProductsStoryblok
     | AllProjectsStoryblok
     | ArchitectEyeStoryblok
@@ -201,6 +217,7 @@ export interface PageStoryblok {
     | ConfigStoryblok
     | ContactStoryblok
     | ContentStoryblok
+    | DesignerStoryblok
     | ImageFieldsStoryblok
     | ImageFullStoryblok
     | NavItemStoryblok
@@ -244,13 +261,20 @@ export interface PeriodicalsStoryblok {
   [k: string]: any;
 }
 
+export type MultiassetStoryblok = {
+  alt?: string;
+  copyright?: string;
+  id: number;
+  filename: string;
+  name: string;
+  title?: string;
+  [k: string]: any;
+}[];
+
 export interface ProductStoryblok {
-  subtitle?: string;
   text?: RichtextStoryblok;
-  image?: AssetStoryblok;
-  product_series?: ProductSerieStoryblok[];
-  seo?: SeoStoryblok[];
-  brochures?: ImageFieldsStoryblok[];
+  gallery?: MultiassetStoryblok;
+  categories?: (StoryblokStory<CategoryStoryblok> | string)[];
   _uid: string;
   component: "product";
   [k: string]: any;
@@ -281,29 +305,16 @@ export interface ProfilesStoryblok {
   [k: string]: any;
 }
 
-export type MultiassetStoryblok = {
-  alt?: string;
-  copyright?: string;
-  id: number;
-  filename: string;
-  name: string;
-  title?: string;
-  [k: string]: any;
-}[];
-
 export interface ProjectStoryblok {
   brief?: RichtextStoryblok;
-  solution?: RichtextStoryblok;
+  flipbook?: string;
   portrait_image?: AssetStoryblok;
   landscape_image?: AssetStoryblok;
-  category?: StoryblokStory<CategoryStoryblok> | StoryblokStory<CategoryStoryblok> | string;
-  slideshow?: MultiassetStoryblok;
-  project_code?: string;
-  awards?: AwardStoryblok[];
-  press?: PublicationStoryblok[];
-  architect?: string;
-  seo?: SeoStoryblok[];
   photographer?: string;
+  category?: StoryblokStory<CategoryStoryblok> | StoryblokStory<CategoryStoryblok> | string;
+  products?: (StoryblokStory<ProductStoryblok> | string)[];
+  slideshow?: MultiassetStoryblok;
+  seo?: SeoStoryblok[];
   _uid: string;
   component: "project";
   [k: string]: any;

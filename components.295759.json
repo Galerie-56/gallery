@@ -1,11 +1,34 @@
 {
   "components": [
     {
+      "name": "all-designers",
+      "display_name": "All Designers",
+      "created_at": "2024-07-07T17:20:15.987Z",
+      "updated_at": "2024-07-07T17:20:53.166Z",
+      "id": 6022048,
+      "schema": {},
+      "image": null,
+      "preview_field": null,
+      "is_root": false,
+      "preview_tmpl": null,
+      "is_nestable": true,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "All Designers",
+      "component_group_uuid": "3f99a628-3899-44a4-a276-a76039fac41b",
+      "color": null,
+      "icon": null,
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null,
+      "component_group_name": "page-blocks"
+    },
+    {
       "name": "all-products",
       "display_name": null,
-      "created_at": "2024-05-11T16:28:11.908Z",
-      "updated_at": "2024-05-11T16:28:11.908Z",
-      "id": 5781477,
+      "created_at": "2024-07-05T14:48:08.366Z",
+      "updated_at": "2024-07-05T14:48:08.366Z",
+      "id": 6019228,
       "schema": {},
       "image": null,
       "preview_field": null,
@@ -26,9 +49,9 @@
     {
       "name": "all-projects",
       "display_name": null,
-      "created_at": "2024-05-24T14:28:16.416Z",
-      "updated_at": "2024-05-24T14:28:16.416Z",
-      "id": 5840324,
+      "created_at": "2024-07-05T14:48:08.864Z",
+      "updated_at": "2024-07-05T14:48:08.864Z",
+      "id": 6019241,
       "schema": {},
       "image": null,
       "preview_field": null,
@@ -48,9 +71,9 @@
     {
       "name": "architect-eye",
       "display_name": null,
-      "created_at": "2023-10-25T12:12:31.111Z",
-      "updated_at": "2024-05-11T15:24:14.280Z",
-      "id": 4783071,
+      "created_at": "2024-07-05T14:48:08.934Z",
+      "updated_at": "2024-07-05T14:48:08.934Z",
+      "id": 6019245,
       "schema": {
         "title": {
           "type": "text"
@@ -90,9 +113,9 @@
     {
       "name": "architect-eyes",
       "display_name": null,
-      "created_at": "2023-10-25T12:14:46.764Z",
-      "updated_at": "2024-05-11T15:33:06.705Z",
-      "id": 4783137,
+      "created_at": "2024-07-05T14:48:08.388Z",
+      "updated_at": "2024-07-05T14:48:08.388Z",
+      "id": 6019229,
       "schema": {
         "items": {
           "type": "bloks",
@@ -122,9 +145,9 @@
     {
       "name": "award",
       "display_name": null,
-      "created_at": "2023-10-24T16:06:22.253Z",
-      "updated_at": "2024-06-14T14:56:59.270Z",
-      "id": 4778319,
+      "created_at": "2024-07-05T14:48:08.949Z",
+      "updated_at": "2024-07-05T14:48:08.949Z",
+      "id": 6019246,
       "schema": {
         "title": {
           "type": "text",
@@ -175,9 +198,9 @@
     {
       "name": "awards",
       "display_name": null,
-      "created_at": "2023-10-25T11:33:49.376Z",
-      "updated_at": "2023-10-25T12:25:56.710Z",
-      "id": 4782836,
+      "created_at": "2024-07-05T14:48:08.544Z",
+      "updated_at": "2024-07-05T14:48:08.544Z",
+      "id": 6019234,
       "schema": {
         "items": {
           "type": "bloks",
@@ -209,9 +232,9 @@
     {
       "name": "career",
       "display_name": null,
-      "created_at": "2023-10-25T11:48:32.045Z",
-      "updated_at": "2024-07-04T13:01:01.565Z",
-      "id": 4782939,
+      "created_at": "2024-07-05T14:48:08.765Z",
+      "updated_at": "2024-07-05T14:48:08.765Z",
+      "id": 6019238,
       "schema": {
         "content": {
           "type": "richtext"
@@ -243,9 +266,9 @@
     {
       "name": "careers-list",
       "display_name": null,
-      "created_at": "2024-07-05T11:56:40.444Z",
-      "updated_at": "2024-07-05T14:34:52.116Z",
-      "id": 6017832,
+      "created_at": "2024-07-05T14:48:08.730Z",
+      "updated_at": "2024-07-05T14:48:08.730Z",
+      "id": 6019237,
       "schema": {
         "not_hiring": {
           "type": "text",
@@ -270,9 +293,9 @@
     {
       "name": "category",
       "display_name": null,
-      "created_at": "2024-05-23T14:10:45.059Z",
-      "updated_at": "2024-06-04T09:04:46.313Z",
-      "id": 5834127,
+      "created_at": "2024-07-05T14:48:08.824Z",
+      "updated_at": "2024-07-05T14:48:08.824Z",
+      "id": 6019240,
       "schema": {
         "headline": {
           "type": "text"
@@ -296,9 +319,9 @@
     {
       "name": "config",
       "display_name": null,
-      "created_at": "2023-10-25T12:29:56.059Z",
-      "updated_at": "2024-06-29T15:24:30.640Z",
-      "id": 4783217,
+      "created_at": "2024-07-05T14:48:08.971Z",
+      "updated_at": "2024-07-05T14:48:08.971Z",
+      "id": 6019247,
       "schema": {
         "address": {
           "type": "textarea",
@@ -402,9 +425,9 @@
     {
       "name": "contact",
       "display_name": null,
-      "created_at": "2023-10-25T12:17:47.723Z",
-      "updated_at": "2023-10-25T12:18:59.721Z",
-      "id": 4783138,
+      "created_at": "2024-07-05T14:48:08.440Z",
+      "updated_at": "2024-07-05T14:48:08.440Z",
+      "id": 6019231,
       "schema": {
         "address": {
           "type": "textarea"
@@ -441,9 +464,9 @@
     {
       "name": "content",
       "display_name": null,
-      "created_at": "2023-10-24T16:56:43.286Z",
-      "updated_at": "2023-10-24T16:57:17.975Z",
-      "id": 4778532,
+      "created_at": "2024-07-05T14:48:08.573Z",
+      "updated_at": "2024-07-05T14:48:08.573Z",
+      "id": 6019235,
       "schema": {
         "text": {
           "type": "richtext"
@@ -472,11 +495,52 @@
       "component_group_name": "page-blocks"
     },
     {
+      "name": "designer",
+      "display_name": null,
+      "created_at": "2024-07-06T06:16:31.730Z",
+      "updated_at": "2024-07-08T17:32:23.196Z",
+      "id": 6020357,
+      "schema": {
+        "text": {
+          "type": "richtext",
+          "pos": 0
+        },
+        "image": {
+          "type": "asset",
+          "pos": 1
+        },
+        "products": {
+          "type": "options",
+          "pos": 2,
+          "source": "internal_stories",
+          "folder_slug": "products/",
+          "filter_content_type": [
+            "product"
+          ],
+          "entry_appearance": "card"
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "designer",
+      "component_group_uuid": null,
+      "color": "#00b3b0",
+      "icon": "block-image",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null
+    },
+    {
       "name": "image-fields",
       "display_name": null,
-      "created_at": "2023-10-24T16:18:26.829Z",
-      "updated_at": "2024-06-27T16:09:48.799Z",
-      "id": 4778323,
+      "created_at": "2024-07-05T14:48:08.901Z",
+      "updated_at": "2024-07-05T14:48:08.901Z",
+      "id": 6019243,
       "schema": {
         "name": {
           "type": "text",
@@ -512,9 +576,9 @@
     {
       "name": "image-full",
       "display_name": "Image Full",
-      "created_at": "2024-07-04T12:40:44.453Z",
-      "updated_at": "2024-07-04T12:56:33.595Z",
-      "id": 6013202,
+      "created_at": "2024-07-05T14:48:08.342Z",
+      "updated_at": "2024-07-05T14:48:08.342Z",
+      "id": 6019227,
       "schema": {
         "image": {
           "type": "asset",
@@ -540,9 +604,9 @@
     {
       "name": "nav-item",
       "display_name": null,
-      "created_at": "2023-10-25T12:38:25.925Z",
-      "updated_at": "2024-05-10T10:17:10.841Z",
-      "id": 4783253,
+      "created_at": "2024-07-05T14:48:09.000Z",
+      "updated_at": "2024-07-05T14:48:09.000Z",
+      "id": 6019248,
       "schema": {
         "label": {
           "type": "text",
@@ -592,9 +656,9 @@
     {
       "name": "page",
       "display_name": null,
-      "created_at": "2023-10-24T16:30:56.496Z",
-      "updated_at": "2023-10-24T16:32:17.345Z",
-      "id": 4778376,
+      "created_at": "2024-07-05T14:48:09.074Z",
+      "updated_at": "2024-07-05T14:48:09.074Z",
+      "id": 6019251,
       "schema": {
         "headline": {
           "type": "text"
@@ -621,9 +685,9 @@
     {
       "name": "periodical",
       "display_name": null,
-      "created_at": "2023-10-25T12:06:34.543Z",
-      "updated_at": "2023-10-25T12:14:29.976Z",
-      "id": 4783021,
+      "created_at": "2024-07-05T14:48:09.024Z",
+      "updated_at": "2024-07-05T14:48:09.024Z",
+      "id": 6019249,
       "schema": {
         "title": {
           "type": "text"
@@ -669,9 +733,9 @@
     {
       "name": "periodicals",
       "display_name": null,
-      "created_at": "2023-10-25T12:08:56.610Z",
-      "updated_at": "2023-10-25T12:27:02.845Z",
-      "id": 4783026,
+      "created_at": "2024-07-05T14:48:08.492Z",
+      "updated_at": "2024-07-05T14:48:08.492Z",
+      "id": 6019232,
       "schema": {
         "items": {
           "type": "bloks",
@@ -703,51 +767,24 @@
     {
       "name": "product",
       "display_name": null,
-      "created_at": "2023-10-24T16:06:22.175Z",
-      "updated_at": "2024-06-18T14:09:48.942Z",
-      "id": 4778316,
+      "created_at": "2024-07-05T14:48:08.881Z",
+      "updated_at": "2024-07-07T08:30:07.649Z",
+      "id": 6019242,
       "schema": {
-        "subtitle": {
-          "type": "text"
-        },
         "text": {
           "type": "richtext"
         },
-        "image": {
-          "type": "asset"
+        "gallery": {
+          "type": "multiasset",
+          "pos": 3
         },
-        "product_series": {
-          "type": "bloks",
-          "restrict_type": "",
-          "restrict_components": true,
-          "component_whitelist": [
-            "product-serie"
-          ]
-        },
-        "tab-de963728-9d22-4949-bfd8-736fb83d1a28": {
-          "display_name": "SEO",
-          "keys": [
-            "seo"
-          ],
-          "pos": 0,
-          "type": "tab"
-        },
-        "seo": {
-          "type": "bloks",
-          "minimum": 1,
-          "maximum": 1,
-          "restrict_type": "",
-          "restrict_components": true,
-          "component_whitelist": [
-            "seo"
-          ]
-        },
-        "brochures": {
-          "type": "bloks",
-          "restrict_type": "",
-          "restrict_components": true,
-          "component_whitelist": [
-            "image-fields"
+        "categories": {
+          "type": "options",
+          "pos": 4,
+          "source": "internal_stories",
+          "folder_slug": "categories/",
+          "filter_content_type": [
+            "category"
           ]
         }
       },
@@ -769,9 +806,9 @@
     {
       "name": "product-serie",
       "display_name": null,
-      "created_at": "2023-10-24T16:06:22.156Z",
-      "updated_at": "2023-10-24T16:27:14.752Z",
-      "id": 4778315,
+      "created_at": "2024-07-05T14:48:09.114Z",
+      "updated_at": "2024-07-05T14:48:09.114Z",
+      "id": 6019252,
       "schema": {
         "title": {
           "type": "text"
@@ -806,9 +843,9 @@
     {
       "name": "profile",
       "display_name": null,
-      "created_at": "2023-10-24T16:44:09.318Z",
-      "updated_at": "2023-10-25T12:50:57.132Z",
-      "id": 4778498,
+      "created_at": "2024-07-05T14:48:09.059Z",
+      "updated_at": "2024-07-05T14:48:09.059Z",
+      "id": 6019250,
       "schema": {
         "photo": {
           "type": "asset",
@@ -838,9 +875,9 @@
     {
       "name": "profiles",
       "display_name": null,
-      "created_at": "2023-10-24T16:55:00.608Z",
-      "updated_at": "2023-10-24T16:56:18.163Z",
-      "id": 4778529,
+      "created_at": "2024-07-05T14:48:08.612Z",
+      "updated_at": "2024-07-05T14:48:08.612Z",
+      "id": 6019236,
       "schema": {
         "title": {
           "type": "text",
@@ -874,26 +911,36 @@
     },
     {
       "name": "project",
-      "display_name": null,
-      "created_at": "2023-10-24T16:06:22.195Z",
-      "updated_at": "2024-06-29T15:15:28.288Z",
-      "id": 4778317,
+      "display_name": "Exhibition",
+      "created_at": "2024-07-05T14:48:08.791Z",
+      "updated_at": "2024-07-07T08:14:30.860Z",
+      "id": 6019239,
       "schema": {
         "brief": {
           "type": "richtext",
-          "pos": 0
+          "pos": 0,
+          "key": "brief"
         },
-        "solution": {
-          "type": "richtext",
-          "pos": 1
+        "flipbook": {
+          "type": "text",
+          "pos": 1,
+          "display_name": "Flipbook",
+          "key": "flipbook_url"
         },
         "portrait_image": {
           "type": "asset",
-          "pos": 2
+          "pos": 2,
+          "key": "portrait_image"
         },
         "landscape_image": {
           "type": "asset",
-          "pos": 3
+          "pos": 3,
+          "key": "landscape_image"
+        },
+        "photographer": {
+          "type": "text",
+          "pos": 4,
+          "key": "photographer"
         },
         "category": {
           "type": "option",
@@ -904,15 +951,28 @@
             "category"
           ],
           "folder_slug": "categories/",
-          "pos": 4
+          "pos": 5,
+          "key": "category"
+        },
+        "products": {
+          "type": "options",
+          "pos": 6,
+          "source": "internal_stories",
+          "folder_slug": "products/",
+          "filter_content_type": [
+            "product"
+          ],
+          "entry_appearance": "card",
+          "key": "products"
         },
         "tab-22cdc10a-1e7b-4b10-91e5-69991ee57dcb": {
           "display_name": "images",
           "keys": [
             "slideshow"
           ],
-          "pos": 5,
-          "type": "tab"
+          "pos": 7,
+          "type": "tab",
+          "key": "tab-22cdc10a-1e7b-4b10-91e5-69991ee57dcb"
         },
         "slideshow": {
           "type": "multiasset",
@@ -920,53 +980,17 @@
             "images"
           ],
           "asset_folder_id": 327707,
-          "pos": 6
-        },
-        "tab-46a9b37c-ee0b-48c4-a090-8f04701a4bb8": {
-          "display_name": "info",
-          "keys": [
-            "project_code",
-            "awards",
-            "press",
-            "architect",
-            "photographer"
-          ],
-          "pos": 7,
-          "type": "tab"
-        },
-        "project_code": {
-          "type": "text",
-          "pos": 8
-        },
-        "awards": {
-          "type": "bloks",
-          "restrict_type": "",
-          "restrict_components": true,
-          "component_whitelist": [
-            "award"
-          ],
-          "pos": 9
-        },
-        "press": {
-          "type": "bloks",
-          "restrict_type": "",
-          "restrict_components": true,
-          "component_whitelist": [
-            "publication"
-          ],
-          "pos": 10
-        },
-        "architect": {
-          "type": "text",
-          "pos": 11
+          "pos": 8,
+          "key": "slideshow"
         },
         "tab-b2ce45c9-845c-4b6c-83d7-6c95525ca91d": {
           "display_name": "SEO",
           "keys": [
             "seo"
           ],
-          "pos": 12,
-          "type": "tab"
+          "pos": 9,
+          "type": "tab",
+          "key": "tab-b2ce45c9-845c-4b6c-83d7-6c95525ca91d"
         },
         "seo": {
           "type": "bloks",
@@ -977,11 +1001,8 @@
           "component_whitelist": [
             "seo"
           ],
-          "pos": 13
-        },
-        "photographer": {
-          "type": "text",
-          "pos": 14
+          "pos": 10,
+          "key": "seo"
         }
       },
       "image": null,
@@ -991,7 +1012,7 @@
       "is_nestable": false,
       "all_presets": [],
       "preset_id": null,
-      "real_name": "project",
+      "real_name": "Exhibition",
       "component_group_uuid": null,
       "color": "#00b3b0",
       "icon": "block-suitcase",
@@ -1002,9 +1023,9 @@
     {
       "name": "publication",
       "display_name": null,
-      "created_at": "2023-10-24T16:06:22.215Z",
-      "updated_at": "2024-05-11T15:52:36.374Z",
-      "id": 4778318,
+      "created_at": "2024-07-05T14:48:08.918Z",
+      "updated_at": "2024-07-05T14:48:08.918Z",
+      "id": 6019244,
       "schema": {
         "thumbnail": {
           "type": "asset",
@@ -1048,9 +1069,9 @@
     {
       "name": "publications",
       "display_name": null,
-      "created_at": "2023-10-25T11:40:08.698Z",
-      "updated_at": "2023-10-25T12:26:24.669Z",
-      "id": 4782869,
+      "created_at": "2024-07-05T14:48:08.512Z",
+      "updated_at": "2024-07-05T14:48:08.512Z",
+      "id": 6019233,
       "schema": {
         "book_cover": {
           "type": "asset",
@@ -1095,9 +1116,9 @@
     {
       "name": "seo",
       "display_name": null,
-      "created_at": "2023-10-24T16:06:22.136Z",
-      "updated_at": "2023-10-24T16:06:22.136Z",
-      "id": 4778314,
+      "created_at": "2024-07-05T14:48:09.147Z",
+      "updated_at": "2024-07-05T14:48:09.147Z",
+      "id": 6019254,
       "schema": {
         "title": {
           "translatable": true,
@@ -1151,9 +1172,9 @@
     {
       "name": "slideshow",
       "display_name": null,
-      "created_at": "2023-10-25T12:21:52.019Z",
-      "updated_at": "2024-05-10T12:41:08.144Z",
-      "id": 4783207,
+      "created_at": "2024-07-05T14:48:08.421Z",
+      "updated_at": "2024-07-05T14:48:08.421Z",
+      "id": 6019230,
       "schema": {
         "images": {
           "type": "multiasset",
@@ -1181,9 +1202,9 @@
     {
       "name": "space",
       "display_name": null,
-      "created_at": "2023-10-24T16:14:01.627Z",
-      "updated_at": "2023-10-24T16:28:31.753Z",
-      "id": 4778322,
+      "created_at": "2024-07-05T14:48:09.131Z",
+      "updated_at": "2024-07-05T14:48:09.131Z",
+      "id": 6019253,
       "schema": {
         "headline": {
           "type": "text"

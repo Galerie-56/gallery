@@ -1,19 +1,23 @@
 import { Link } from '@remix-run/react';
-import type { ProductStoryblok } from '~/types';
 
-export const WorkCard = ({ product }: { product: ProductStoryblok }) => {
-  const {
-    name,
-    full_slug,
-    content: { gallery },
-  } = product;
-  const image = gallery[0];
+export const WorkCard = ({
+  headline,
+  full_slug,
+  image,
+  designer,
+}: {
+  headline: string;
+  full_slug: string;
+  image: { filename: string; alt_text: string };
+  designer: boolean;
+}) => {
+  const size = designer ? '700x470' : '500x300';
   return (
     <div className="relative overflow-hidden">
       <Link to={`/${full_slug}`}>
-        <img src={`${image?.filename}/m/500x300`} alt={image?.alt_text} />
+        <img src={`${image?.filename}/m/${size}`} alt={image?.alt_text} />
         <div className="absolute inset-0 bg-white bg-opacity-60 opacity-0 hover:opacity-100 transition-opacity duration-500 flex flex-col p-5 uppercase text-primary">
-          <h2>{name}</h2>
+          <h2>{headline}</h2>
         </div>
       </Link>
     </div>

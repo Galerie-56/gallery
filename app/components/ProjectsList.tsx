@@ -33,15 +33,6 @@ export const ProjectsList = ({ uuid }: ProjectsListType) => {
   const perPage = (globalData as GlobalData)?.perPage;
 
   const fetchProjects = async (page: number, uuid: string) => {
-    // Fetch the UUID of the "on-the-board" category
-    const { data: categoryData } = await sbApi.get('cdn/stories', {
-      version: 'draft',
-      starts_with: 'categories/',
-      by_slugs: 'categories/on-the-board',
-    });
-
-    const onTheBoardUuid = categoryData.stories[0]?.uuid;
-
     const { data: projects } = await sbApi.get(`cdn/stories`, {
       version: 'draft',
       starts_with: 'exhibitions/',
@@ -50,11 +41,6 @@ export const ProjectsList = ({ uuid }: ProjectsListType) => {
       is_startpage: false,
       resolve_relations: resolveRelations,
       search_term: uuid,
-      filter_query: {
-        categories: {
-          not_in: onTheBoardUuid,
-        },
-      },
     });
 
     const nextProjects = projects.stories.map((p: ProjectStoryblok) =>

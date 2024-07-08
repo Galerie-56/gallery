@@ -8,7 +8,7 @@
     "dev": "remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "proxy": "local-ssl-proxy --source 3010 --target 3000 --cert localhost.pem --key localhost-key.pem",
-    "generate-sb-types": "storyblok pull-components --space=258807 && storyblok-generate-ts source=./components.258807.json target=./app/types/component-types-sb",
+    "generate-sb-types": "storyblok pull-components --space=295759 && storyblok-generate-ts source=./components.295759.json target=./app/types/component-types-sb",
     "start": "remix-serve ./build/server/index.js",
     "typecheck": "tsc"
   },

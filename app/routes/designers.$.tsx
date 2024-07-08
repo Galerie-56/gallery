@@ -7,7 +7,8 @@ import {
 } from '@storyblok/react';
 import { GeneralErrorBoundary } from '~/components/GeneralErrorBoundary';
 import { NotFoundPage } from '~/components/NotFoundPage';
-import { getPerPage, getWorkCardData, getTotal, isPreview } from '~/lib';
+import { getPerPage, getTotal, isPreview, getDesignerCardData } from '~/lib';
+import type { DesignerStoryblok } from '~/types';
 
 export const loader: LoaderFunction = async ({
   params,
@@ -28,13 +29,39 @@ export const loader: LoaderFunction = async ({
     .catch((e) => {
       return { data: null };
     });
+  console.log('data', data);
 
   if (!data) {
     throw new Response('Not Found', { status: 404 });
   }
+
+  const page = Number.isNaN(Number(params.pageNumber))
+    ? 1
+    : Number(params.pageNumber);
+  const perPage = await getPerPage(sbApi);
+  const { data: designersData } = await sbApi.get(
+    `cdn/stories`,
+    {
+      version: version as 'published' | 'draft',
+      starts_with: 'designers/',
+      per_page: perPage,
+      page,
+      is_startpage: false,
+    },
+    { cache: 'no-store' }
+  );
+
+  const total = await getTotal('designers');
+  const designers = designersData.stories.map((d: DesignerStoryblok) =>
+    getDesignerCardData(d)
+  );
   return json({
     story: data?.story,
     careerName: data?.story?.name,
+    designers,
+    total,
+    page,
+    perPage,
   });
 };
 

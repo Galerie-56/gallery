@@ -62,9 +62,22 @@ export const Project = ({ blok }: { blok: ProjectStoryblok }) => {
           className="w-full"
         />
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 md:gap-4 gap-2  mt-4">
-          {products.map((product: ProductStoryblok) => (
-            <WorkCard key={product.id} product={product} />
-          ))}
+          {products.map((product: ProductStoryblok) => {
+            const {
+              name,
+              full_slug,
+              content: { gallery },
+            } = product;
+            const image = gallery[0];
+            return (
+              <WorkCard
+                key={product.id}
+                name={name}
+                full_slug={full_slug}
+                image={image}
+              />
+            );
+          })}
         </div>
         <ProjectNavigation
           className="md:w-1/2 uppercase sm:hidden mt-5"

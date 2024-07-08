@@ -1,4 +1,9 @@
-import type { ProjectStoryblok, ProductStoryblok } from '~/types';
+import type {
+  ProjectStoryblok,
+  ProductStoryblok,
+  DesignerStoryblok,
+} from '~/types';
+
 export function getProjectCardData(p: ProjectStoryblok) {
   return {
     id: p.id,
@@ -28,5 +33,14 @@ export function getWorkCardData(p: ProductStoryblok) {
     headline: p.name,
     full_slug: p.full_slug,
     image: p.content.gallery[0].filename,
+  };
+}
+
+export function getDesignerCardData(d: DesignerStoryblok) {
+  return {
+    id: d.id,
+    headline: d.name,
+    full_slug: d.full_slug,
+    image: d.content.image,
   };
 }
