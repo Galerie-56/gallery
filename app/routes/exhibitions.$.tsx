@@ -7,7 +7,7 @@ import {
 } from '@storyblok/react';
 import { GeneralErrorBoundary } from '~/components/GeneralErrorBoundary';
 import { NotFoundPage } from '~/components/NotFoundPage';
-import { getPerPage, getProjectCardData, getTotal, isPreview } from '~/lib';
+import { getPerPage, getProjectCardData, isPreview } from '~/lib';
 
 import type { ProjectStoryblok } from '~/types';
 
@@ -54,7 +54,10 @@ export const loader: LoaderFunction = async ({
     { cache: 'no-store' }
   );
 
-  const total = await getTotal('exhibitions');
+  const response = await fetch(
+    `https://api.storyblok.com/v2/cdn/stories?token=${process.env.STORYBLOK_PREVIEW_TOKEN}&starts_with=exhibitions/&version=draft&is_startpage=false`
+  );
+  const total = await response?.headers.get('total');
   const projects = projectsData.stories.map((p: ProjectStoryblok) =>
     getProjectCardData(p)
   );

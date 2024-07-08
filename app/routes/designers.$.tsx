@@ -7,7 +7,7 @@ import {
 } from '@storyblok/react';
 import { GeneralErrorBoundary } from '~/components/GeneralErrorBoundary';
 import { NotFoundPage } from '~/components/NotFoundPage';
-import { getPerPage, getTotal, isPreview, getDesignerCardData } from '~/lib';
+import { getPerPage, isPreview, getDesignerCardData } from '~/lib';
 import type { DesignerStoryblok } from '~/types';
 
 export const loader: LoaderFunction = async ({
@@ -51,7 +51,10 @@ export const loader: LoaderFunction = async ({
     { cache: 'no-store' }
   );
 
-  const total = await getTotal('designers');
+  const response = await fetch(
+    `https://api.storyblok.com/v2/cdn/stories?token=${process.env.STORYBLOK_PREVIEW_TOKEN}&starts_with=designers/&version=draft&is_startpage=false`
+  );
+  const total = await response?.headers.get('total');
   const designers = designersData.stories.map((d: DesignerStoryblok) =>
     getDesignerCardData(d)
   );
