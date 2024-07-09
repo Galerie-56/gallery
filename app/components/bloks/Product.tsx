@@ -32,7 +32,7 @@ const savePDF = () => {
 
 export const Product = ({ blok }: { blok: ProductStoryblok }) => {
   const { productName } = useLoaderData<typeof loader>();
-  const { text, gallery, categories, pdf } = blok;
+  const { text, gallery, categories, pdf, add_to_cart } = blok;
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [state, handleSubmit] = useForm('xwpekyrl');
 
@@ -80,7 +80,13 @@ export const Product = ({ blok }: { blok: ProductStoryblok }) => {
             </div>
           )}
           <div className="mt-4 border-b border-slate-300 w-[200px] pb-4 mb-6 hover:text-black transition duration-300 hover:underline">
-            <button onClick={savePDF}>SAVE AS PDF</button>
+            {pdf && pdf.cached_url ? (
+              <a href={pdf.cached_url} download={`${productName}.pdf`}>
+                SAVE AS PDF
+              </a>
+            ) : (
+              <button onClick={savePDF}>SAVE AS PDF</button>
+            )}
           </div>
           <div className="mt-4 no-print">
             <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>

@@ -1,6 +1,7 @@
 import {StoryblokStory} from 'storyblok-generate-ts'
 
 export interface AllDesignersStoryblok {
+  Designers?: string;
   _uid: string;
   component: "all-designers";
   [k: string]: any;
@@ -274,7 +275,9 @@ export type MultiassetStoryblok = {
 export interface ProductStoryblok {
   text?: RichtextStoryblok;
   gallery?: MultiassetStoryblok;
+  pdf?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
   categories?: (StoryblokStory<CategoryStoryblok> | string)[];
+  add_to_cart?: boolean;
   _uid: string;
   component: "product";
   [k: string]: any;
