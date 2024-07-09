@@ -12,7 +12,7 @@ import { useState, useMemo, useEffect } from 'react';
 
 export const SlideShow = ({
   images,
-  size = '1920x1080',
+  size = '0x960',
   location = 'project',
   ...props
 }) => {
@@ -26,19 +26,9 @@ export const SlideShow = ({
           key={index}
           className={`flex justify-center align-bottom ${props.className}`}
         >
-          <div
-            className={`${
-              location !== 'home'
-                ? 'bg-white flex items-center justify-center'
-                : ''
-            }`}
-            style={{
-              width: location !== 'home' ? size.split('x')[0] + 'px' : 'auto',
-              height: location !== 'home' ? size.split('x')[1] + 'px' : 'auto',
-            }}
-          >
+          <div>
             <img
-              src={`${image.filename}/m/${location === 'home' ? size : ''}`}
+              src={`${image.filename}/m/${size}`}
               alt={image.alt_text}
               className="w-full h-auto object-cover"
             />

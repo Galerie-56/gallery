@@ -32,9 +32,11 @@ const savePDF = () => {
 
 export const Product = ({ blok }: { blok: ProductStoryblok }) => {
   const { productName } = useLoaderData<typeof loader>();
-  const { text, gallery, categories } = blok;
+  const { text, gallery, categories, pdf } = blok;
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [state, handleSubmit] = useForm('xwpekyrl');
+
+  console.log(pdf);
 
   return (
     <article

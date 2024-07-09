@@ -55,11 +55,10 @@ export const Project = ({ blok }: { blok: ProjectStoryblok }) => {
           prevProject={prevProject}
         />
       </div>
-      <div className="mt-7 order-1 sm:order-none">
-        <img
-          src={`${landscape_image?.filename}/m/1220x0`}
-          alt={landscape_image?.alt}
-          className="w-full"
+      <div className="mt-7">
+        <SlideShow
+          images={slideshow}
+          className="h-[300px] md:h-[500px] lg:h-[763px]"
         />
         <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 md:gap-4 gap-2  mt-4">
           {products.map((product: ProductStoryblok) => {
@@ -72,7 +71,7 @@ export const Project = ({ blok }: { blok: ProjectStoryblok }) => {
             return (
               <WorkCard
                 key={product.id}
-                name={name}
+                headline={name}
                 full_slug={full_slug}
                 image={image}
               />
