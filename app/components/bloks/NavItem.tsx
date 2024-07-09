@@ -21,7 +21,7 @@ export const NavItem = ({ blok, mobile }: NavItemStoryblok) => {
       );
     } else {
       return (
-        <div className="sub-menu absolute opacity-0 left-0  group-hover:block group-hover:opacity-100  bg-white mt-3 transition-all duration-500 -translate-y-[10px] group-hover:-translate-y-[0px] text-sm border border-gray-300 p-2 z-50">
+        <div className="sub-menu absolute opacity-0 left-0 invisible group-hover:visible  group-hover:block group-hover:opacity-100  bg-white mt-3 transition-all duration-500 -translate-y-[10px] group-hover:-translate-y-[0px] text-sm border border-gray-300 p-2 z-50">
           {sub_menu.map((nestedBlok: NavItemStoryblok) => (
             <div key={nestedBlok._uid} className="mb-2 text-sm leading-tight ">
               <StoryblokComponent blok={nestedBlok} />
