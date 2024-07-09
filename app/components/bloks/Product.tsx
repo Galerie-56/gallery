@@ -32,11 +32,14 @@ const savePDF = () => {
 
 export const Product = ({ blok }: { blok: ProductStoryblok }) => {
   const { productName } = useLoaderData<typeof loader>();
-  const { text, gallery, categories, pdf, add_to_cart } = blok;
+  let { text, gallery, categories, pdf, add_to_cart } = blok;
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [state, handleSubmit] = useForm('xwpekyrl');
-
-  console.log(pdf);
+  // @ts-ignore
+  categories = categories.filter(
+    // @ts-ignore
+    (category: CategoryStoryblok) => category.slug !== 'previously-exhibited'
+  );
 
   return (
     <article
@@ -64,9 +67,11 @@ export const Product = ({ blok }: { blok: ProductStoryblok }) => {
             <h1 className="text-primary font-normal text-xl">{productName}</h1>
             <div dangerouslySetInnerHTML={{ __html: renderRichText(text) }} />
           </div>
+
           {categories && categories.length > 0 && (
             <div className="mt-4 no-print">
               Categories:
+              {/* @ts-ignore */}
               {categories.map((category: CategoryStoryblok, index: number) => (
                 <Link
                   key={category._uid}
@@ -103,7 +108,7 @@ export const Product = ({ blok }: { blok: ProductStoryblok }) => {
                     </h1>
                     <div className="flex justify-between w-full">
                       <img
-                        src={`${gallery[0].filename}/m/100x0`}
+                        src={`${gallery?.[0]?.filename}/m/100x0`}
                         alt={`${productName} - Image`}
                       />
                       <h3>{productName}</h3>
