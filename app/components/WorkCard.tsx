@@ -9,7 +9,7 @@ export const WorkCard = ({
   headline: string;
   full_slug: string;
   image: { filename: string; alt_text: string };
-  designer: boolean;
+  designer?: boolean;
 }) => {
   const size = designer ? '700x470' : '500x300';
   return (

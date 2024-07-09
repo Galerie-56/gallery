@@ -21,3 +21,4 @@ export * from './ImageFull';
 export * from './Career';
 export * from './CareersList';
 export * from './AllDesigners';
+export * from './Designer';

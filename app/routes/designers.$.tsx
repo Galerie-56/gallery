@@ -23,13 +23,13 @@ export const loader: LoaderFunction = async ({
       `cdn/stories/designers/${slug}`,
       {
         version: version as 'published' | 'draft',
+        resolve_relations: ['designer.products'],
       },
       { cache: 'no-store' }
     )
     .catch((e) => {
       return { data: null };
     });
-  console.log('data', data);
 
   if (!data) {
     throw new Response('Not Found', { status: 404 });
@@ -60,7 +60,6 @@ export const loader: LoaderFunction = async ({
   );
   return json({
     story: data?.story,
-    careerName: data?.story?.name,
     designers,
     total,
     page,
