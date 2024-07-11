@@ -1,8 +1,8 @@
-import { useLoaderData } from "@remix-run/react";
-import { storyblokEditable } from "@storyblok/react";
-import type { CategoryStoryblok } from "~/types";
-import { ProjectsList } from "~/components/ProjectsList";
-import type { loader } from "~/routes/categories.$";
+import { useLoaderData } from '@remix-run/react';
+import { storyblokEditable } from '@storyblok/react';
+import type { CategoryStoryblok } from '~/types';
+import type { loader } from '~/routes/categories.$';
+import { ProductsList } from '../ProductsList';
 
 export const Category = ({ blok }: CategoryStoryblok) => {
   const { uuid } = useLoaderData<typeof loader>();
@@ -13,7 +13,7 @@ export const Category = ({ blok }: CategoryStoryblok) => {
         <h1 className="text-[24px] uppercase mb-10">{blok.headline}</h1>
         {blok.description ? <p>{blok.description}</p> : null}
       </div>
-      <ProjectsList uuid={uuid} />
+      <ProductsList uuid={uuid} />
     </div>
   );
 };

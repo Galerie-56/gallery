@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { getStoryblokApi } from "@storyblok/react";
-import { useMatches } from "@remix-run/react";
-import type { ProductStoryblok } from "~/types";
-import { getProductCardData } from "~/lib";
-import { ProductCard } from "./ProductCard";
+import { useState } from 'react';
+import { getStoryblokApi } from '@storyblok/react';
+import { useMatches } from '@remix-run/react';
+import type { ProductStoryblok } from '~/types';
+import { getProductCardData } from '~/lib';
+import { WorkCard } from './WorkCard';
 
 interface RouteData {
   total: number;
@@ -21,7 +21,7 @@ export const ProductsList = ({ uuid }: ProductsListType) => {
   const { total, products: firstsProducts } = matches[1].data as RouteData;
   const [products, setProducts] = useState(firstsProducts);
 
-  console.log("total", total);
+  console.log('total', total);
 
   interface GlobalData {
     perPage: number;
@@ -33,8 +33,8 @@ export const ProductsList = ({ uuid }: ProductsListType) => {
 
   const fetchProducts = async (page: number, uuid: string) => {
     const { data: products } = await sbApi.get(`cdn/stories`, {
-      version: "draft",
-      starts_with: "products/",
+      version: 'draft',
+      starts_with: 'products/',
       per_page: perPage,
       page,
       is_startpage: false,
@@ -54,13 +54,28 @@ export const ProductsList = ({ uuid }: ProductsListType) => {
   const loadMore = () => {
     const nextPage = currentPage + 1;
     setCurrentPage(nextPage);
-    fetchProducts(nextPage, uuid || "");
+    fetchProducts(nextPage, uuid || '');
   };
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      {products?.map((product: ProductStoryblok) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
+    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 md:gap-4 gap-2  mt-4">
+      {products.map((product: ProductStoryblok) => {
+        console.log();
+
+        const {
+          name,
+          full_slug,
+          content: { gallery },
+        } = product;
+        const image = gallery[0];
+        return (
+          <WorkCard
+            key={product.id}
+            headline={name}
+            full_slug={full_slug}
+            image={image}
+          />
+        );
+      })}
       {total && products.length < total && (
         <div className="">
           <button className="button mx-auto py-4 px-7" onClick={loadMore}>

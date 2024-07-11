@@ -2,11 +2,9 @@ import { useState } from 'react';
 import { storyblokEditable, renderRichText } from '@storyblok/react';
 import { ProjectStoryblok } from '~/types';
 import { SlideShow } from '../SlideShow';
-import { Link } from '@remix-run/react';
 import { useLoaderData } from '@remix-run/react';
-import { WorkCard } from '../WorkCard';
-import type { ProductStoryblok } from '~/types';
 import { ProjectNavigation } from '../ProjectNavigation';
+import { ProductsGrid } from '~/components/ProductsGrid';
 
 export const Project = ({ blok }: { blok: ProjectStoryblok }) => {
   const {
@@ -60,24 +58,7 @@ export const Project = ({ blok }: { blok: ProjectStoryblok }) => {
           images={slideshow}
           className="h-[300px] md:h-[500px] lg:h-[763px]"
         />
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 md:gap-4 gap-2  mt-4">
-          {products.map((product: ProductStoryblok) => {
-            const {
-              name,
-              full_slug,
-              content: { gallery },
-            } = product;
-            const image = gallery[0];
-            return (
-              <WorkCard
-                key={product.id}
-                headline={name}
-                full_slug={full_slug}
-                image={image}
-              />
-            );
-          })}
-        </div>
+        <ProductsGrid products={products} />
         <ProjectNavigation
           className="md:w-1/2 uppercase sm:hidden mt-5"
           photographer={photographer}

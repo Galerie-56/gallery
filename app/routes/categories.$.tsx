@@ -1,4 +1,3 @@
-// import { GeneralErrorBoundary } from '~/components/GeneralErrorBoundary';
 import { NotFoundPage } from '~/components/NotFoundPage';
 import {
   json,
@@ -25,7 +24,7 @@ import { isPreview } from '~/lib';
 export const loader = async ({ params }: LoaderFunctionArgs) => {
   const slug = params['*'] ?? 'home';
   const sbApi = getStoryblokApi();
-  const resolveRelations = ['project.category'];
+  const resolveRelations = ['product.category'];
   const version = isPreview() ? 'draft' : 'published';
 
   const { data } = await sbApi
@@ -57,7 +56,7 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
     `cdn/stories/`,
     {
       version: version as 'published' | 'draft',
-      starts_with: 'exhibitions/',
+      starts_with: 'products/',
       is_startpage: false,
       per_page: perPage,
       page,
@@ -67,22 +66,20 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
     { cache: 'no-store' }
   );
 
-  const total = await getTotal(uuid, 'exhibitions');
+  const total = await getTotal(uuid, 'products');
 
   const headers = {
     ...cacheControl,
   };
 
-  const projects = postsByContentType?.stories.map((p: ProjectStoryblok) =>
-    getProjectCardData(p)
-  );
+  const products = postsByContentType?.stories;
 
   return json(
     {
       story,
       uuid: uuid,
       name: story.name,
-      projects,
+      products,
       perPage,
       total,
     },
@@ -96,7 +93,7 @@ export const headers: HeadersFunction = ({ loaderHeaders }) => {
 
 const CategoryPage = () => {
   let { story } = useLoaderData<typeof loader>();
-  story = useStoryblokState(story, { resolveRelations: ['project.category'] });
+  story = useStoryblokState(story, { resolveRelations: ['product.category'] });
   return <StoryblokComponent blok={story?.content} />;
 };
 
