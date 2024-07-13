@@ -7,7 +7,7 @@ import {
   useLoaderData,
   json,
 } from '@remix-run/react';
-import type { LinksFunction } from '@remix-run/node';
+import type { ActionFunctionArgs, LinksFunction } from '@remix-run/node';
 import { storyblokInit, apiPlugin, getStoryblokApi } from '@storyblok/react';
 import styles from './styles/global.css?url';
 import { GlobalLayout } from './components/layout';
@@ -139,6 +139,81 @@ export const loader = async () => {
     pinterest,
     perPage: posts_per_page,
   });
+};
+
+export const action = async ({ request }: ActionFunctionArgs) => {
+  const formData = await request.formData();
+  const email = formData.get('email');
+  console.log(email);
+
+  if (typeof email !== 'string' || !email) {
+    return json(
+      { error: 'Please enter a valid email address' },
+      { status: 400 }
+    );
+  }
+
+  const API_KEY = process.env.MAILCHIMP_API_KEY;
+  const API_SERVER = process.env.MAILCHIMP_SERVER;
+  const AUDIENCE_ID = process.env.MAILCHIMP_LIST_ID;
+
+  const url = `https://${API_SERVER}.api.mailchimp.com/3.0/lists/${AUDIENCE_ID}/members`;
+
+  const data = {
+    email_address: email,
+    status: 'subscribed',
+    merge_fields: {
+      FNAME: 'alex',
+    },
+  };
+
+  try {
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `api_key ${API_KEY}`,
+      },
+      body: JSON.stringify(data),
+    });
+
+    const responseData = await response.json();
+    console.log(responseData);
+
+    if (response.ok) {
+      return json(
+        { message: 'Awesome! You have successfully subscribed!' },
+        { status: 201 }
+      );
+    } else if (responseData.title === 'Member Exists') {
+      return json(
+        { error: 'Uh oh, it looks like this email is already subscribed🧐' },
+        { status: 400 }
+      );
+    } else if (responseData.title === 'Invalid Resource') {
+      // Handle invalid merge fields error
+      return json(
+        {
+          error:
+            'There was an issue with your subscription. Please try again or contact support.',
+        },
+        { status: 400 }
+      );
+    } else {
+      // Log the full error for debugging
+      console.error('Mailchimp API error:', responseData);
+      throw new Error(responseData.detail || 'An unknown error occurred');
+    }
+  } catch (error) {
+    console.error('Subscription error:', error);
+    return json(
+      {
+        error:
+          'Oops! There was an error subscribing you to the newsletter. Please try again later.',
+      },
+      { status: 500 }
+    );
+  }
 };
 
 export function Layout({ children }: { children: React.ReactNode }) {

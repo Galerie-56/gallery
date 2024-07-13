@@ -1,12 +1,13 @@
-import { useLoaderData } from "@remix-run/react";
-import { type loader } from "~/root";
+import { useLoaderData } from '@remix-run/react';
+import { type loader } from '~/root';
 import {
   FaFacebookSquare,
   FaInstagramSquare,
   FaPinterestSquare,
-} from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa6";
-import { renderRichText } from "@storyblok/react";
+} from 'react-icons/fa';
+import { FaLinkedin } from 'react-icons/fa6';
+import { renderRichText } from '@storyblok/react';
+import { Newsletter } from '~/components/Newsletter';
 
 export const Footer = () => {
   let {
@@ -90,6 +91,9 @@ export const Footer = () => {
             <br />
             Lee F. Mindel, Architect, D.P.C.
           </p>
+        </div>
+        <div>
+          <Newsletter />
         </div>
       </div>
       <p className="mt-10">{footerText}</p>

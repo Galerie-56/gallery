@@ -38,9 +38,6 @@ importers:
       '@storyblok/react':
         specifier: ^3.0.10
         version: 3.0.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@tailwindcss/forms':
-        specifier: ^0.5.7
-        version: 0.5.7(tailwindcss@3.4.4)
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -87,6 +84,9 @@ importers:
       '@remix-run/dev':
         specifier: ^2.10.2
         version: 2.10.2(@remix-run/react@2.10.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@5.5.3))(@remix-run/serve@2.10.2(typescript@5.5.3))(@types/node@20.12.7)(sass@1.77.2)(typescript@5.5.3)(vite@5.3.3(@types/node@20.12.7)(sass@1.77.2))
+      '@tailwindcss/forms':
+        specifier: ^0.5.7
+        version: 0.5.7(tailwindcss@3.4.4)
       '@tailwindcss/typography':
         specifier: ^0.5.13
         version: 0.5.13(tailwindcss@3.4.4)
