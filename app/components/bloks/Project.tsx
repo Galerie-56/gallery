@@ -40,7 +40,7 @@ export const Project = ({ blok }: { blok: ProjectStoryblok }) => {
               <div className="relative pt-[60%] min-h-[326px] w-full mb-5 md:mb-0">
                 <iframe
                   className="absolute inset-0 w-full h-full border-none"
-                  src={`https://e.issuu.com/embed.html?d=${flipbook}&u=galerie56.com&hideIssuuLogo=true&showOtherPublicationsAsSuggestions=true&layout=http%3A%2F%2Fskin.issuu.com%2Fv%2Flight%2Flayout.xml&showFlipBtn=true`}
+                  src={`${flipbook}&u=galerie56.com&hideIssuuLogo=true&showOtherPublicationsAsSuggestions=true&layout=http%3A%2F%2Fskin.issuu.com%2Fv%2Flight%2Flayout.xml&showFlipBtn=true`}
                 ></iframe>
               </div>
             </div>
