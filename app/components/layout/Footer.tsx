@@ -25,7 +25,7 @@ export const Footer = () => {
 
   return (
     <footer className="container mt-10 text-[14px] mb-10">
-      <div className="max-w-site mx-auto flex justify-between">
+      <div className="max-w-site mx-auto space-y-10 md:flex justify-between">
         <div className="space-y-4">
           <div>
             <h3 className="uppercase [&>a]:underline">Address</h3>
@@ -34,14 +34,7 @@ export const Footer = () => {
                 dangerouslySetInnerHTML={{ __html: address }}
                 className="mb-5 md:mb-0"
               />
-              <p
-                dangerouslySetInnerHTML={{ __html: address_2 }}
-                className="mb-5 md:mb-0"
-              />
-              <p dangerouslySetInnerHTML={{ __html: address_3 }} />
             </div>
-            {/* <p>hello{renderRichText(address_2)}</p>
-            <p>{renderRichText(address_3)}</p> */}
           </div>
           <div>
             <h3 className="uppercase">Social Media</h3>
