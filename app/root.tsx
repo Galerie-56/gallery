@@ -144,7 +144,6 @@ export const loader = async () => {
 export const action = async ({ request }: ActionFunctionArgs) => {
   const formData = await request.formData();
   const email = formData.get('email');
-  console.log(email);
 
   if (typeof email !== 'string' || !email) {
     return json(
@@ -161,10 +160,8 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 
   const data = {
     email_address: email,
-    status: 'subscribed',
-    merge_fields: {
-      FNAME: 'alex',
-    },
+    status: 'pending',
+    tags: ['newsletter_signup'],
   };
 
   try {
@@ -178,20 +175,21 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     });
 
     const responseData = await response.json();
-    console.log(responseData);
 
     if (response.ok) {
       return json(
-        { message: 'Awesome! You have successfully subscribed!' },
+        {
+          message:
+            'Success! Please check your email to confirm your subscription.',
+        },
         { status: 201 }
       );
     } else if (responseData.title === 'Member Exists') {
       return json(
-        { error: 'Uh oh, it looks like this email is already subscribed🧐' },
+        { error: 'Uh oh, it looks like this email is already subscribed' },
         { status: 400 }
       );
     } else if (responseData.title === 'Invalid Resource') {
-      // Handle invalid merge fields error
       return json(
         {
           error:
