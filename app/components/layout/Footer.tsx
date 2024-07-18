@@ -25,7 +25,7 @@ export const Footer = () => {
 
   return (
     <footer className="container mt-10 text-[14px] mb-10">
-      <div className="max-w-site mx-auto space-y-10 md:flex justify-between">
+      <div className="max-w-site mx-auto md:space-y-0 space-y-10 md:flex justify-between">
         <div className="space-y-4">
           <div>
             <h3 className="uppercase [&>a]:underline">Address</h3>
