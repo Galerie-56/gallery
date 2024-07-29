@@ -97,6 +97,10 @@
   a {
     @apply hover:text-black;
   }
+  b,
+  strong {
+    @apply text-black font-bold;
+  }
 }
 
 @layer components {
