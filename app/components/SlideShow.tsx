@@ -12,7 +12,7 @@ import { useState, useMemo, useEffect } from 'react';
 
 export const SlideShow = ({
   images,
-  size = '0x960',
+  size = '0x2000',
   location = 'project',
   ...props
 }) => {
@@ -30,7 +30,7 @@ export const SlideShow = ({
             <img
               src={`${image.filename}/m/${size}`}
               alt={image.alt_text}
-              className="w-full h-auto object-cover"
+              className="w-auto max-h-[800px] object-contain"
             />
           </div>
         </CarouselItem>
