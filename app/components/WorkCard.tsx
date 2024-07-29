@@ -11,7 +11,7 @@ export const WorkCard = ({
   image: { filename: string; alt_text: string };
   designer?: boolean;
 }) => {
-  const size = designer ? '700x470' : '500x300';
+  const size = designer ? '1400x940' : '1000x600';
   return (
     <div className="relative overflow-hidden">
       <Link to={`/${full_slug}`}>
