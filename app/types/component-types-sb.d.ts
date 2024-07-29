@@ -274,6 +274,7 @@ export type MultiassetStoryblok = {
 
 export interface ProductStoryblok {
   text?: RichtextStoryblok;
+  landscape_image?: AssetStoryblok;
   gallery?: MultiassetStoryblok;
   pdf?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
   categories?: (StoryblokStory<CategoryStoryblok> | string)[];

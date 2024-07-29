@@ -54,7 +54,7 @@ export const Product = ({ blok }: { blok: ProductStoryblok }) => {
               {gallery.map((image: GalleryStoryblok, index: number) => (
                 <img
                   key={index}
-                  src={`${image.filename}/m/600x0`}
+                  src={`${image.filename}/m/1200x0`}
                   alt={`${productName} - Image`}
                   className="w-full"
                 />

@@ -12,9 +12,9 @@ export const ProductsGrid = ({
         const {
           name,
           full_slug,
-          content: { gallery },
+          content: { gallery, landscape_image },
         } = product;
-        const image = gallery[0];
+        const image = landscape_image || gallery[0];
         return (
           <WorkCard
             key={product.id}
