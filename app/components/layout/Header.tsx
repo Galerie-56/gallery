@@ -11,9 +11,9 @@ export const Header = () => {
       <div className="container py-5 lg:pt-10 lg:pb-12 flex items-center justify-between">
         <Link to="/">
           <img
-            src={`${logo.filename}/m/352x70`}
+            src={`${logo.filename}/m/700x150`}
             alt={logo.alt}
-            className="md:w-full w-[200px]"
+            className="md:w-[350px] w-[200px]"
           />
         </Link>
         <MainMenu />
