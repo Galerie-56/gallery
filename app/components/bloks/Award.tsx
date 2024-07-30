@@ -14,7 +14,7 @@ export const Award = ({ blok }: AwardStoryblok) => {
       <div className="mb-2 w-full">
         <a href={link?.cached_url} target="_blank" rel="noopener noreferrer">
           <img
-            src={`${thumbnail.filename}/m/800x500/`}
+            src={`${thumbnail.filename}/m/1600x1000/`}
             alt={thumbnail.alt}
             className="w-full h-auto"
           />
