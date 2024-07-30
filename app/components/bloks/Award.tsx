@@ -1,8 +1,9 @@
-import { storyblokEditable } from "@storyblok/react";
-import type { AwardStoryblok } from "~/types";
+import { storyblokEditable } from '@storyblok/react';
+import type { AwardStoryblok } from '~/types';
 
 export const Award = ({ blok }: AwardStoryblok) => {
-  const { _uid, title, year, link, thumbnail, description, description_link } = blok;
+  const { _uid, title, year, link, thumbnail, description, description_link } =
+    blok;
 
   return (
     <div
@@ -13,7 +14,7 @@ export const Award = ({ blok }: AwardStoryblok) => {
       <div className="mb-2 w-full">
         <a href={link?.cached_url} target="_blank" rel="noopener noreferrer">
           <img
-            src={`${thumbnail.filename}/m/400x250/`}
+            src={`${thumbnail.filename}/m/800x500/`}
             alt={thumbnail.alt}
             className="w-full h-auto"
           />
@@ -30,13 +31,15 @@ export const Award = ({ blok }: AwardStoryblok) => {
         </a>
       </div>
       <div className="w-full mt-2 tex-sm hover:text-black">
-        <a href={description_link?.cached_url} target="_blank" rel="noopener noreferrer">
+        <a
+          href={description_link?.cached_url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {description}
         </a>
       </div>
-      {year && (
-        <div className="text-sm mt-2 w-full">{year}</div>
-      )}
+      {year && <div className="text-sm mt-2 w-full">{year}</div>}
     </div>
   );
 };
