@@ -5,6 +5,9 @@ import { SlideShow } from '../SlideShow';
 import { useLoaderData } from '@remix-run/react';
 import { ProjectNavigation } from '../ProjectNavigation';
 import { ProductsGrid } from '~/components/ProductsGrid';
+// import { Dialog } from '@headlessui/react'
+import { Dialog, DialogContent, DialogTrigger } from '~/components/ui/dialog';
+import { LightboxCarousel } from '~/components/LightBoxCarousel';
 
 export const Project = ({ blok }: { blok: ProjectStoryblok }) => {
   const {
@@ -54,10 +57,56 @@ export const Project = ({ blok }: { blok: ProjectStoryblok }) => {
         />
       </div>
       <div className="mt-7">
-        <SlideShow
+        {/* <SlideShow
           images={slideshow}
           className="h-[300px] md:h-[500px] lg:h-[763px]"
-        />
+        /> */}
+        <Dialog>
+          <DialogTrigger asChild>
+            <a
+              onClick={() => setActiveIndex(0)}
+              className="block cursor-pointer"
+            >
+              <img
+                src={`${landscape_image?.filename}/m/1600x0`}
+                alt={landscape_image?.alt}
+                className="w-full hover:opacity-60 transition duration-300"
+              />
+            </a>
+          </DialogTrigger>
+          <DialogContent className="!w-full h-full flex-col justify-center items-center border-none shadow-none">
+            <LightboxCarousel
+              images={[landscape_image, ...slideshow]}
+              startIndex={activeIndex}
+              location="project"
+            />
+          </DialogContent>
+        </Dialog>
+        <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 md:gap-4 gap-2 mt-4">
+          {slideshow?.map((image, index) => (
+            <Dialog key={image._uid}>
+              <DialogTrigger asChild>
+                <a
+                  onClick={() => setActiveIndex(index + 1)}
+                  className="block aspect-square cursor-pointer"
+                >
+                  <img
+                    src={`${image.filename}/m/300x300`}
+                    alt={image.alt}
+                    className="w-full h-full object-cover hover:opacity-60 transition duration-300"
+                  />
+                </a>
+              </DialogTrigger>
+              <DialogContent className="!w-full h-full flex-col justify-center items-center border-none shadow-none">
+                <LightboxCarousel
+                  images={[landscape_image, ...slideshow]}
+                  startIndex={index + 1}
+                  location="project"
+                />
+              </DialogContent>
+            </Dialog>
+          ))}
+        </div>
         <ProductsGrid products={products} />
         <ProjectNavigation
           className="md:w-1/2 uppercase sm:hidden mt-5"
