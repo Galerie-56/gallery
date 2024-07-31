@@ -21,7 +21,6 @@ export const ProjectsList = ({ uuid }: ProjectsListType) => {
   const { total, projects: firstsProjects } = matches[1].data as RouteData;
 
   const [projects, setProjects] = useState(firstsProjects);
-  console.log('total', total);
 
   interface GlobalData {
     perPage: number;

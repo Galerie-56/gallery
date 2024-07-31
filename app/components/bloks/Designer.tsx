@@ -6,7 +6,6 @@ import { DesignerStoryblok } from '~/types';
 
 export const Designer = ({ blok }: { blok: DesignerStoryblok }) => {
   const { text, image, products } = blok;
-  console.log(products);
 
   const {
     story: { name },

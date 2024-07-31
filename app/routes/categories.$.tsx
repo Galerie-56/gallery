@@ -36,7 +36,6 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
       { cache: 'no-store' }
     )
     .catch((e) => {
-      //   console.log("e", e);
       return { data: null };
     });
   invariantResponse(data, `there is no page with slug ${slug}`, {
