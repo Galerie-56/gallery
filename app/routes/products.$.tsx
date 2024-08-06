@@ -51,8 +51,11 @@ export const loader: LoaderFunction = async ({
     },
     { cache: 'no-store' }
   );
-
-  const total = await getTotal('products');
+  const response = await fetch(
+    `https://api.storyblok.com/v2/cdn/stories?token=${process.env.STORYBLOK_PREVIEW_TOKEN}&starts_with=products/&version=draft&is_startpage=false
+    }`
+  );
+  // const total = await response?.headers.get('total');
   const products = productsData.stories.map((p: ProductStoryblok) =>
     getProductCardData(p)
   );

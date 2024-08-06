@@ -55,30 +55,29 @@ export const ProductsList = ({ uuid }: ProductsListType) => {
     fetchProducts(nextPage, uuid || '');
   };
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 md:gap-4 gap-2  mt-4">
-      {products.map((product: ProductStoryblok) => {
-        const {
-          name,
-          full_slug,
-          content: { gallery },
-        } = product;
-        const image = gallery[0];
-        return (
-          <WorkCard
-            key={product.id}
-            headline={name}
-            full_slug={full_slug}
-            image={image}
-          />
-        );
-      })}
+    <>
+      <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 md:gap-4 gap-2  mt-4">
+        {products.map((product: ProductStoryblok) => {
+          console.log('product', product);
+          const { headline, subtitle, full_slug, image } = product;
+
+          return (
+            <WorkCard
+              key={product.id}
+              headline={headline}
+              full_slug={full_slug}
+              image={image}
+            />
+          );
+        })}
+      </div>
       {total && products.length < total && (
-        <div className="">
+        <div className="w-full flex justify-center mt-5">
           <button className="button mx-auto py-4 px-7" onClick={loadMore}>
             Load More
           </button>
         </div>
       )}
-    </div>
+    </>
   );
 };

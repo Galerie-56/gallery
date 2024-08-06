@@ -23,7 +23,7 @@ export function getProductCardData(p: ProductStoryblok) {
     headline: p.name,
     subtitle: p.content.subtitle,
     full_slug: p.full_slug,
-    image: p.content.image,
+    image: p.content.landscape_image || p.content.gallery[0],
   };
 }
 
@@ -32,7 +32,8 @@ export function getWorkCardData(p: ProductStoryblok) {
     id: p.id,
     headline: p.name,
     full_slug: p.full_slug,
-    image: p.content.gallery[0].filename,
+    image:
+      p.content.landscape_image?.filename || p.content.gallery[0]?.filename,
   };
 }
 

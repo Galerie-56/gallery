@@ -5,7 +5,8 @@ import type { loader } from '~/routes/categories.$';
 import { ProductsList } from '../ProductsList';
 
 export const Category = ({ blok }: CategoryStoryblok) => {
-  const { uuid } = useLoaderData<typeof loader>();
+  const { uuid, name } = useLoaderData<typeof loader>();
+  blok.headline = name;
 
   return (
     <div {...storyblokEditable(blok)} key={blok._uid}>

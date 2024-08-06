@@ -9,13 +9,14 @@ import {
   getStoryblokApi,
   useStoryblokState,
 } from '@storyblok/react';
-import type { ProjectStoryblok } from '~/types';
+import type { ProductStoryblok, ProjectStoryblok } from '~/types';
 import {
   getPerPage,
   getProjectCardData,
   getTotal,
   invariantResponse,
   cacheControl,
+  getProductCardData,
 } from '~/lib';
 import { useLoaderData } from '@remix-run/react';
 import { GeneralErrorBoundary } from '~/components/GeneralErrorBoundary';
@@ -65,13 +66,20 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
     { cache: 'no-store' }
   );
 
-  const total = await getTotal(uuid, 'products');
+  // const total = await getTotal(uuid, 'products');
+  const response = await fetch(
+    `https://api.storyblok.com/v2/cdn/stories?token=${process.env.STORYBLOK_PREVIEW_TOKEN}&starts_with=products/&version=draft&is_startpage=false&search_term=${uuid}`,
+    { cache: 'no-store' }
+  );
+  const total = await response?.headers.get('total');
 
   const headers = {
     ...cacheControl,
   };
 
-  const products = postsByContentType?.stories;
+  const products = postsByContentType?.stories.map((p: ProductStoryblok) =>
+    getProductCardData(p)
+  );
 
   return json(
     {
