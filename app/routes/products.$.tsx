@@ -7,7 +7,7 @@ import {
 } from '@storyblok/react';
 import { GeneralErrorBoundary } from '~/components/GeneralErrorBoundary';
 import { NotFoundPage } from '~/components/NotFoundPage';
-import { getPerPage, getProductCardData, getTotal } from '~/lib';
+import { getPerPage, getProductCardData } from '~/lib';
 import { ProductStoryblok } from '~/types';
 import { isPreview } from '~/lib';
 
@@ -55,7 +55,8 @@ export const loader: LoaderFunction = async ({
     `https://api.storyblok.com/v2/cdn/stories?token=${process.env.STORYBLOK_PREVIEW_TOKEN}&starts_with=products/&version=draft&is_startpage=false
     }`
   );
-  // const total = await response?.headers.get('total');
+  const total = await response?.headers.get('total');
+
   const products = productsData.stories.map((p: ProductStoryblok) =>
     getProductCardData(p)
   );

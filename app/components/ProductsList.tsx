@@ -58,8 +58,7 @@ export const ProductsList = ({ uuid }: ProductsListType) => {
     <>
       <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 md:gap-4 gap-2  mt-4">
         {products.map((product: ProductStoryblok) => {
-          console.log('product', product);
-          const { headline, subtitle, full_slug, image } = product;
+          const { headline, full_slug, image } = product;
 
           return (
             <WorkCard

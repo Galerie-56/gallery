@@ -19,7 +19,6 @@ export const Project = ({ blok }: { blok: ProjectStoryblok }) => {
     products,
   } = blok;
   const { projectName, prevProject, nextProject } = useLoaderData();
-  console.log('products', products);
 
   const [activeIndex, setActiveIndex] = useState(0);
 

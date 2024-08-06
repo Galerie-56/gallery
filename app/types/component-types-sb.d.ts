@@ -279,6 +279,7 @@ export interface ProductStoryblok {
   pdf?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
   categories?: (StoryblokStory<CategoryStoryblok> | string)[];
   add_to_cart?: boolean;
+  price?: string;
   _uid: string;
   component: "product";
   [k: string]: any;
