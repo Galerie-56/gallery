@@ -13,6 +13,7 @@ import {
   DialogTrigger,
 } from '~/components/ui/dialog';
 import { useForm, ValidationError } from '@formspree/react';
+import AddToCartButton from '~/components/AddToCartButton';
 
 const savePDF = () => {
   const style = document.createElement('style');
@@ -231,6 +232,7 @@ export const Product = ({ blok }: { blok: ProductStoryblok }) => {
               </DialogContent>
             </Dialog>
           </div>
+          <AddToCartButton productId="686488210" storeId="106080046" />
         </div>
       </div>
     </article>

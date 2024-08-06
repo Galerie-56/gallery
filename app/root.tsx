@@ -236,6 +236,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
             __html: `window.env = ${JSON.stringify(env)}`,
           }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.ec = window.ec || {};
+            window.ec.config = window.ec.config || {};
+            window.ec.config.storefrontUrls = window.ec.config.storefrontUrls || {};
+            window.ec.config.storefrontUrls.cleanUrls = true;
+            window.ec.config.enable_canonical_urls = true;
+          `,
+          }}
+        />
         <ScrollRestoration />
         <Scripts />
       </body>
