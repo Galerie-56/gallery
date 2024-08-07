@@ -38,6 +38,7 @@ import {
   Designer,
 } from './components/bloks';
 import { isPreview } from './lib';
+import Cart from '~/components/Cart';
 
 const isServer = typeof window === 'undefined';
 
@@ -220,6 +221,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
     // Handle the case where data is not available, e.g., render an error message or a loading spinner
     return <div>Loading or error...</div>;
   }
+  const storeId = '106080046';
   const { env } = data;
   return (
     <html lang="en">
@@ -247,6 +249,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
           `,
           }}
         />
+        <script src={`https://app.ecwid.com/script.js?${storeId}`} async />
+        <Cart storeId={storeId} />
         <ScrollRestoration />
         <Scripts />
       </body>

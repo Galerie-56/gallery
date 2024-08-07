@@ -235,6 +235,7 @@ export interface PageStoryblok {
     | SeoStoryblok
     | SlideshowStoryblok
     | SpaceStoryblok
+    | SpaceStoryblok
   )[];
   _uid: string;
   component: "page";
@@ -278,8 +279,7 @@ export interface ProductStoryblok {
   gallery?: MultiassetStoryblok;
   pdf?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
   categories?: (StoryblokStory<CategoryStoryblok> | string)[];
-  add_to_cart?: boolean;
-  price?: string;
+  product_id?: string;
   _uid: string;
   component: "product";
   [k: string]: any;
@@ -371,5 +371,13 @@ export interface SpaceStoryblok {
   images?: ImageFieldsStoryblok[];
   _uid: string;
   component: "space";
+  [k: string]: any;
+}
+
+export interface SpaceStoryblok {
+  landscape_image?: AssetStoryblok;
+  gallery?: MultiassetStoryblok;
+  _uid: string;
+  component: "Space";
   [k: string]: any;
 }

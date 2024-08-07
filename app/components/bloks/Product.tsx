@@ -33,7 +33,7 @@ const savePDF = () => {
 
 export const Product = ({ blok }: { blok: ProductStoryblok }) => {
   const { productName } = useLoaderData<typeof loader>();
-  let { text, gallery, categories, pdf, add_to_cart } = blok;
+  let { text, gallery, categories, pdf, product_id } = blok;
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [state, handleSubmit] = useForm('xwpekyrl');
   // @ts-ignore
@@ -95,144 +95,147 @@ export const Product = ({ blok }: { blok: ProductStoryblok }) => {
             )}
           </div>
           <div className="mt-4 no-print">
-            <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-              <DialogTrigger asChild>
-                <button className="font-bold">PRICE ON REQUEST</button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[600px] sm:max-h-[800px] right-1/2 transform translate-x-1/2 mt-10 overflow-y-auto">
-                {state.succeeded ? (
-                  <p>Thanks for your request. We'll get back to you soon!</p>
-                ) : (
-                  <div className="text-center font-bold w-full sm:p-10">
-                    <h1 className="capitalize font-bold text-lg text-black">
-                      Request A Price
-                    </h1>
-                    <div className="flex justify-between w-full">
-                      <img
-                        src={`${gallery?.[0]?.filename}/m/100x0`}
-                        alt={`${productName} - Image`}
-                      />
-                      <h3>{productName}</h3>
-                    </div>
-                    <form
-                      onSubmit={handleSubmit}
-                      className="space-y-4 request-price"
-                    >
-                      <input
-                        type="hidden"
-                        name="productName"
-                        value={productName}
-                      />
-                      <div className="space-y-2">
-                        <label
-                          htmlFor="name"
-                          className="block text-sm font-medium"
-                        >
-                          Your name
-                        </label>
-                        <input
-                          id="name"
-                          name="name"
-                          className="w-full p-2 border rounded-md"
-                          required
+            {product_id ? (
+              <AddToCartButton productId={product_id} storeId="106080046" />
+            ) : (
+              <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                <DialogTrigger asChild>
+                  <button className="font-bold">PRICE ON REQUEST</button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[600px] sm:max-h-[800px] right-1/2 transform translate-x-1/2 mt-10 overflow-y-auto">
+                  {state.succeeded ? (
+                    <p>Thanks for your request. We'll get back to you soon!</p>
+                  ) : (
+                    <div className="text-center font-bold w-full sm:p-10">
+                      <h1 className="capitalize font-bold text-lg text-black">
+                        Request A Price
+                      </h1>
+                      <div className="flex justify-between w-full">
+                        <img
+                          src={`${gallery?.[0]?.filename}/m/100x0`}
+                          alt={`${productName} - Image`}
                         />
-                        <ValidationError
-                          prefix="Name"
-                          field="name"
-                          errors={state.errors}
-                        />
+                        <h3>{productName}</h3>
                       </div>
-                      <div className="space-y-2">
-                        <label
-                          htmlFor="email"
-                          className="block text-sm font-medium"
-                        >
-                          Your email
-                        </label>
-                        <input
-                          id="email"
-                          name="email"
-                          type="email"
-                          className="w-full p-2 border rounded-md"
-                          required
-                        />
-                        <ValidationError
-                          prefix="Email"
-                          field="email"
-                          errors={state.errors}
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <label
-                          htmlFor="phone"
-                          className="block text-sm font-medium"
-                        >
-                          Your phone number (optional)
-                        </label>
-                        <input
-                          id="phone"
-                          name="phone"
-                          type="tel"
-                          className="w-full p-2 border rounded-md"
-                        />
-                        <ValidationError
-                          prefix="Phone"
-                          field="phone"
-                          errors={state.errors}
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <label
-                          htmlFor="address"
-                          className="block text-sm font-medium"
-                        >
-                          Address (optional)
-                        </label>
-                        <textarea
-                          id="address"
-                          name="address"
-                          className="w-full p-2 border rounded-md"
-                          rows={3}
-                        />
-                        <ValidationError
-                          prefix="Address"
-                          field="address"
-                          errors={state.errors}
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <label
-                          htmlFor="message"
-                          className="block text-sm font-medium"
-                        >
-                          Your message (optional)
-                        </label>
-                        <textarea
-                          id="message"
-                          name="message"
-                          className="w-full p-2 border rounded-md"
-                          rows={4}
-                        />
-                        <ValidationError
-                          prefix="Message"
-                          field="message"
-                          errors={state.errors}
-                        />
-                      </div>
-                      <button
-                        type="submit"
-                        disabled={state.submitting}
-                        className="w-full p-2 bg-primary text-white rounded"
+                      <form
+                        onSubmit={handleSubmit}
+                        className="space-y-4 request-price"
                       >
-                        {state.submitting ? 'Sending...' : 'Send Request'}
-                      </button>
-                    </form>
-                  </div>
-                )}
-              </DialogContent>
-            </Dialog>
+                        <input
+                          type="hidden"
+                          name="productName"
+                          value={productName}
+                        />
+                        <div className="space-y-2">
+                          <label
+                            htmlFor="name"
+                            className="block text-sm font-medium"
+                          >
+                            Your name
+                          </label>
+                          <input
+                            id="name"
+                            name="name"
+                            className="w-full p-2 border rounded-md"
+                            required
+                          />
+                          <ValidationError
+                            prefix="Name"
+                            field="name"
+                            errors={state.errors}
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <label
+                            htmlFor="email"
+                            className="block text-sm font-medium"
+                          >
+                            Your email
+                          </label>
+                          <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            className="w-full p-2 border rounded-md"
+                            required
+                          />
+                          <ValidationError
+                            prefix="Email"
+                            field="email"
+                            errors={state.errors}
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <label
+                            htmlFor="phone"
+                            className="block text-sm font-medium"
+                          >
+                            Your phone number (optional)
+                          </label>
+                          <input
+                            id="phone"
+                            name="phone"
+                            type="tel"
+                            className="w-full p-2 border rounded-md"
+                          />
+                          <ValidationError
+                            prefix="Phone"
+                            field="phone"
+                            errors={state.errors}
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <label
+                            htmlFor="address"
+                            className="block text-sm font-medium"
+                          >
+                            Address (optional)
+                          </label>
+                          <textarea
+                            id="address"
+                            name="address"
+                            className="w-full p-2 border rounded-md"
+                            rows={3}
+                          />
+                          <ValidationError
+                            prefix="Address"
+                            field="address"
+                            errors={state.errors}
+                          />
+                        </div>
+                        <div className="space-y-2">
+                          <label
+                            htmlFor="message"
+                            className="block text-sm font-medium"
+                          >
+                            Your message (optional)
+                          </label>
+                          <textarea
+                            id="message"
+                            name="message"
+                            className="w-full p-2 border rounded-md"
+                            rows={4}
+                          />
+                          <ValidationError
+                            prefix="Message"
+                            field="message"
+                            errors={state.errors}
+                          />
+                        </div>
+                        <button
+                          type="submit"
+                          disabled={state.submitting}
+                          className="w-full p-2 bg-primary text-white rounded"
+                        >
+                          {state.submitting ? 'Sending...' : 'Send Request'}
+                        </button>
+                      </form>
+                    </div>
+                  )}
+                </DialogContent>
+              </Dialog>
+            )}
           </div>
-          <AddToCartButton productId="686488210" storeId="106080046" />
         </div>
       </div>
     </article>

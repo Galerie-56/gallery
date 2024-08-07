@@ -773,7 +773,7 @@
       "name": "product",
       "display_name": null,
       "created_at": "2024-07-05T14:48:08.881Z",
-      "updated_at": "2024-08-06T09:48:46.985Z",
+      "updated_at": "2024-08-06T14:37:58.738Z",
       "id": 6019242,
       "schema": {
         "text": {
@@ -803,13 +803,9 @@
             "category"
           ]
         },
-        "add_to_cart": {
-          "type": "boolean",
-          "pos": 6
-        },
-        "price": {
+        "product_id": {
           "type": "number",
-          "pos": 7
+          "pos": 5
         }
       },
       "image": null,
@@ -1256,6 +1252,40 @@
       "component_group_uuid": null,
       "color": "#ffac00",
       "icon": "block-resize-fc",
+      "internal_tags_list": [],
+      "internal_tag_ids": [],
+      "content_type_asset_preview": null
+    },
+    {
+      "name": "Space",
+      "display_name": null,
+      "created_at": "2024-08-06T10:38:55.087Z",
+      "updated_at": "2024-08-06T10:40:03.801Z",
+      "id": 6134222,
+      "schema": {
+        "landscape_image": {
+          "type": "asset",
+          "pos": 0,
+          "filetypes": [
+            "images"
+          ]
+        },
+        "gallery": {
+          "type": "multiasset",
+          "pos": 1
+        }
+      },
+      "image": null,
+      "preview_field": null,
+      "is_root": true,
+      "preview_tmpl": null,
+      "is_nestable": false,
+      "all_presets": [],
+      "preset_id": null,
+      "real_name": "Space",
+      "component_group_uuid": null,
+      "color": null,
+      "icon": null,
       "internal_tags_list": [],
       "internal_tag_ids": [],
       "content_type_asset_preview": null
