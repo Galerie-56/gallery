@@ -81,7 +81,7 @@ export const Project = ({ blok }: { blok: ProjectStoryblok }) => {
             />
           </DialogContent>
         </Dialog>
-        <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 md:gap-4 gap-2 mt-4">
+        <div className="grid grid-cols-4 md:grid-cols-6 lg:grid-cols-8 md:gap-4 gap-2 mt-4 mb-20">
           {slideshow?.map((image, index) => (
             <Dialog key={image._uid}>
               <DialogTrigger asChild>
