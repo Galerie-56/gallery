@@ -58,16 +58,18 @@ export const DesignersList = ({ uuid }: DesignersListType) => {
     fetchDesigners(nextPage, uuid || '');
   };
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      {designers?.map((designer: DesignerStoryblok) => (
-        <WorkCard
-          key={designer.id}
-          headline={designer.headline}
-          full_slug={designer.full_slug}
-          image={designer.image}
-          designer
-        />
-      ))}
+    <>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {designers?.map((designer: DesignerStoryblok) => (
+          <WorkCard
+            key={designer.id}
+            headline={designer.headline}
+            full_slug={designer.full_slug}
+            image={designer.image}
+            designer
+          />
+        ))}
+      </div>
       {total && designers.length < total && (
         <div className="col-span-3 flex justify-center mt-4">
           <button className="button py-4 px-7" onClick={loadMore}>
@@ -75,6 +77,6 @@ export const DesignersList = ({ uuid }: DesignersListType) => {
           </button>
         </div>
       )}
-    </div>
+    </>
   );
 };
