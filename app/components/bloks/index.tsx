@@ -22,3 +22,5 @@ export * from './Career';
 export * from './CareersList';
 export * from './AllDesigners';
 export * from './Designer';
+export * from './LinkSlideshow';
+export * from './Slide';

@@ -192,6 +192,13 @@ export interface ImageFullStoryblok {
   [k: string]: any;
 }
 
+export interface LinkSlideshowStoryblok {
+  items?: SlideStoryblok[];
+  _uid: string;
+  component: "link-slideshow";
+  [k: string]: any;
+}
+
 export interface NavItemStoryblok {
   label?: string;
   link?: MultilinkStoryblok;
@@ -221,6 +228,7 @@ export interface PageStoryblok {
     | DesignerStoryblok
     | ImageFieldsStoryblok
     | ImageFullStoryblok
+    | LinkSlideshowStoryblok
     | NavItemStoryblok
     | PageStoryblok
     | PeriodicalStoryblok
@@ -233,6 +241,7 @@ export interface PageStoryblok {
     | PublicationStoryblok
     | PublicationsStoryblok
     | SeoStoryblok
+    | SlideStoryblok
     | SlideshowStoryblok
     | SpaceStoryblok
     | SpaceStoryblok
@@ -355,6 +364,14 @@ export interface SeoStoryblok {
   twitter_image?: AssetStoryblok;
   _uid: string;
   component: "seo";
+  [k: string]: any;
+}
+
+export interface SlideStoryblok {
+  image?: AssetStoryblok;
+  link?: Exclude<MultilinkStoryblok, {linktype?: "email"} | {linktype?: "asset"}>;
+  _uid: string;
+  component: "slide";
   [k: string]: any;
 }
 

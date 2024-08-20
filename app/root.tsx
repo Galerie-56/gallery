@@ -36,6 +36,8 @@ import {
   CareersList,
   AllDesigners,
   Designer,
+  LinkSlideShow,
+  Slide,
 } from './components/bloks';
 import { isPreview } from './lib';
 import Cart from '~/components/Cart';
@@ -72,6 +74,8 @@ const components = {
   'careers-list': CareersList,
   'all-designers': AllDesigners,
   designer: Designer,
+  'link-slideshow': LinkSlideShow,
+  slide: Slide,
 };
 
 storyblokInit({
