@@ -33,10 +33,10 @@ export const Category = ({ blok }: CategoryStoryblok) => {
       <div className="mb-10">
         <h1 className="text-[24px] uppercase mb-10">{blok.headline}</h1>
         {blok.description ? <p>{blok.description}</p> : null}
-        <div className="relative mt-4 w-48 ml-auto" ref={menuRef}>
+        <div className="relative mt-4 w-[300px] ml-auto" ref={menuRef}>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="w-full p-2 border rounded text-left bg-white text-sm"
+            className="w-full p-2 border rounded text-left bg-white text-sm capitalize"
           >
             {name.toLowerCase()}
           </button>
@@ -46,7 +46,7 @@ export const Category = ({ blok }: CategoryStoryblok) => {
                 <Link
                   key={category.uuid}
                   to={`/${category.full_slug}`}
-                  className="block p-2 hover:bg-gray-100 text-sm"
+                  className="block p-2 hover:bg-gray-100 text-sm capitalize"
                   onClick={() => setIsOpen(false)}
                 >
                   {category.name.toLowerCase()}
