@@ -81,6 +81,26 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
     getProductCardData(p)
   );
 
+  // Fetch all categories
+  const { data: categoriesData } = await sbApi.get(
+    'cdn/stories',
+    {
+      version: version as 'published' | 'draft',
+      starts_with: 'categories/',
+      is_startpage: false,
+      per_page: 100,
+    },
+    { cache: 'no-store' }
+  );
+
+  const allCategories = categoriesData?.stories.map((category: any) => {
+    return {
+      uuid: category.uuid,
+      name: category.name,
+      full_slug: category.full_slug,
+    };
+  });
+
   return json(
     {
       story,
@@ -89,6 +109,7 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
       products,
       perPage,
       total,
+      allCategories, // Add categories to the returned data
     },
     { headers }
   );
@@ -99,9 +120,14 @@ export const headers: HeadersFunction = ({ loaderHeaders }) => {
 };
 
 const CategoryPage = () => {
-  let { story } = useLoaderData<typeof loader>();
+  let { story, categories } = useLoaderData<typeof loader>();
   story = useStoryblokState(story, { resolveRelations: ['product.category'] });
-  return <StoryblokComponent blok={story?.content} />;
+  return (
+    <>
+      <StoryblokComponent blok={story?.content} />
+      {/* You can now use the categories data in your component */}
+    </>
+  );
 };
 
 export default CategoryPage;
