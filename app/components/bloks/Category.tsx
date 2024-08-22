@@ -5,6 +5,8 @@ import type { loader } from '~/routes/categories.$';
 import { ProductsList } from '../ProductsList';
 import { useState, useRef, useEffect, useMemo } from 'react';
 
+import { FaCaretDown as ChevronDownIcon } from 'react-icons/fa';
+
 export const Category = ({ blok }: CategoryStoryblok) => {
   const { uuid, name, allCategories } = useLoaderData<typeof loader>();
   const [isOpen, setIsOpen] = useState(false);
@@ -36,9 +38,10 @@ export const Category = ({ blok }: CategoryStoryblok) => {
         <div className="relative mt-4 w-[300px] ml-auto" ref={menuRef}>
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="w-full p-2 border rounded text-left bg-white text-sm capitalize"
+            className="w-full p-2 border rounded text-left bg-white text-sm capitalize flex justify-between items-center"
           >
-            {name.toLowerCase()}
+            Categories
+            <ChevronDownIcon className="h-5 w-5 text-gray-400" />
           </button>
           {isOpen && (
             <div className="absolute z-10 right-0 w-full mt-1 bg-white border rounded shadow-lg max-h-60 overflow-y-auto">
