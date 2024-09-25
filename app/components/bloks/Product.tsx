@@ -96,7 +96,7 @@ export const Product = ({ blok }: { blok: ProductStoryblok }) => {
           </div>
           <div className="mt-4 no-print">
             {product_id ? (
-              <AddToCartButton productId={product_id} storeId="106080046" />
+              <AddToCartButton productId={product_id} storeId="107254008" />
             ) : (
               <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                 <DialogTrigger asChild>
