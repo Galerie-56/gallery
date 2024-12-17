@@ -7,7 +7,11 @@ import {
   useLoaderData,
   json,
 } from '@remix-run/react';
-import type { ActionFunctionArgs, LinksFunction } from '@remix-run/node';
+import type {
+  ActionFunctionArgs,
+  LinksFunction,
+  MetaFunction,
+} from '@remix-run/node';
 import { storyblokInit, apiPlugin, getStoryblokApi } from '@storyblok/react';
 import styles from './styles/global.css?url';
 import { GlobalLayout } from './components/layout';
@@ -102,6 +106,43 @@ export const links: LinksFunction = () => [
   },
   { rel: 'stylesheet', href: styles },
 ];
+
+export const meta: MetaFunction = () => {
+  return [
+    {
+      title:
+        'Galerie56 - Art Gallery in New York | Platform for Art, Architecture, and Design',
+    },
+    {
+      name: 'description',
+      content:
+        'Galerie56 is a platform celebrating the intersection of art, architecture, and design in New York. Located at 56 Leonard Street, we offer a unique space for cultural dialogue and artistic expression.',
+    },
+    { name: 'robots', content: 'index,follow' },
+    { charset: 'utf-8' },
+    { viewport: 'width=device-width,initial-scale=1' },
+    // Favicon
+    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+    {
+      rel: 'apple-touch-icon',
+      sizes: '180x180',
+      href: '/apple-touch-icon.png',
+    },
+    // Open Graph tags for social sharing
+    {
+      property: 'og:title',
+      content:
+        'Galerie56 - Art Gallery in New York | Platform for Art, Architecture, and Design',
+    },
+    {
+      property: 'og:description',
+      content:
+        'Galerie56 is a platform celebrating the intersection of art, architecture, and design in New York. Located at 56 Leonard Street, we offer a unique space for cultural dialogue and artistic expression.',
+    },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://galerie56.com' },
+  ];
+};
 
 export const loader = async () => {
   const sbApi = getStoryblokApi();
