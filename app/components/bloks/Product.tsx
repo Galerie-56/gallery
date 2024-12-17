@@ -35,7 +35,7 @@ export const Product = ({ blok }: { blok: ProductStoryblok }) => {
   const { productName } = useLoaderData<typeof loader>();
   let { text, gallery, categories, pdf, product_id } = blok;
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [state, handleSubmit] = useForm('xwpekyrl');
+  const [state, handleSubmit] = useForm('xgvejzql');
   // @ts-ignore
   categories = categories.filter(
     // @ts-ignore
