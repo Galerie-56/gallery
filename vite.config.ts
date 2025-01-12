@@ -10,4 +10,7 @@ export default defineConfig({
     port: 3000,
   },
   plugins: [remix(), tsconfigPaths()],
+  ssr: {
+    noExternal: ['lucide-react']
+  }
 });
